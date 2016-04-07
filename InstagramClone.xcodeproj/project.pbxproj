@@ -14,6 +14,14 @@
 		D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D80F97CC1CB71D9B00072623 /* InstagramClone.xcdatamodeld */; };
 		D80F97D01CB71D9B00072623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80F97CF1CB71D9B00072623 /* Assets.xcassets */; };
 		D80F97D31CB71D9B00072623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F97D11CB71D9B00072623 /* LaunchScreen.storyboard */; };
+		D80F97EA1CB7221A00072623 /* Photo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97DB1CB7221A00072623 /* Photo+CoreDataProperties.m */; };
+		D80F97EB1CB7221A00072623 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97DD1CB7221A00072623 /* Photo.m */; };
+		D80F97EC1CB7221A00072623 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97DF1CB7221A00072623 /* User+CoreDataProperties.m */; };
+		D80F97ED1CB7221A00072623 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97E11CB7221A00072623 /* User.m */; };
+		D80F97EE1CB7221A00072623 /* Like+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97E31CB7221A00072623 /* Like+CoreDataProperties.m */; };
+		D80F97EF1CB7221A00072623 /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97E51CB7221A00072623 /* Like.m */; };
+		D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97E71CB7221A00072623 /* Comment+CoreDataProperties.m */; };
+		D80F97F11CB7221A00072623 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97E91CB7221A00072623 /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,22 @@
 		D80F97CF1CB71D9B00072623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D80F97D21CB71D9B00072623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D80F97D41CB71D9B00072623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D80F97DA1CB7221A00072623 /* Photo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Photo+CoreDataProperties.h"; path = "../Photo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D80F97DB1CB7221A00072623 /* Photo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Photo+CoreDataProperties.m"; path = "../Photo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D80F97DC1CB7221A00072623 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		D80F97DD1CB7221A00072623 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
+		D80F97DE1CB7221A00072623 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "../User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D80F97DF1CB7221A00072623 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "../User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D80F97E01CB7221A00072623 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		D80F97E11CB7221A00072623 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		D80F97E21CB7221A00072623 /* Like+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Like+CoreDataProperties.h"; path = "../Like+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D80F97E31CB7221A00072623 /* Like+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Like+CoreDataProperties.m"; path = "../Like+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D80F97E41CB7221A00072623 /* Like.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Like.h; path = ../Like.h; sourceTree = "<group>"; };
+		D80F97E51CB7221A00072623 /* Like.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Like.m; path = ../Like.m; sourceTree = "<group>"; };
+		D80F97E61CB7221A00072623 /* Comment+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Comment+CoreDataProperties.h"; path = "../Comment+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D80F97E71CB7221A00072623 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Comment+CoreDataProperties.m"; path = "../Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D80F97E81CB7221A00072623 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = ../Comment.h; sourceTree = "<group>"; };
+		D80F97E91CB7221A00072623 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = ../Comment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,7 @@
 		D80F97BF1CB71D9B00072623 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				D80F97F21CB7222E00072623 /* Model */,
 				D80F97C31CB71D9B00072623 /* AppDelegate.h */,
 				D80F97C41CB71D9B00072623 /* AppDelegate.m */,
 				D80F97C61CB71D9B00072623 /* ViewController.h */,
@@ -80,6 +105,29 @@
 				D80F97C11CB71D9B00072623 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D80F97F21CB7222E00072623 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D80F97DA1CB7221A00072623 /* Photo+CoreDataProperties.h */,
+				D80F97DB1CB7221A00072623 /* Photo+CoreDataProperties.m */,
+				D80F97DC1CB7221A00072623 /* Photo.h */,
+				D80F97DD1CB7221A00072623 /* Photo.m */,
+				D80F97DE1CB7221A00072623 /* User+CoreDataProperties.h */,
+				D80F97DF1CB7221A00072623 /* User+CoreDataProperties.m */,
+				D80F97E01CB7221A00072623 /* User.h */,
+				D80F97E11CB7221A00072623 /* User.m */,
+				D80F97E21CB7221A00072623 /* Like+CoreDataProperties.h */,
+				D80F97E31CB7221A00072623 /* Like+CoreDataProperties.m */,
+				D80F97E41CB7221A00072623 /* Like.h */,
+				D80F97E51CB7221A00072623 /* Like.m */,
+				D80F97E61CB7221A00072623 /* Comment+CoreDataProperties.h */,
+				D80F97E71CB7221A00072623 /* Comment+CoreDataProperties.m */,
+				D80F97E81CB7221A00072623 /* Comment.h */,
+				D80F97E91CB7221A00072623 /* Comment.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,10 +200,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80F97EF1CB7221A00072623 /* Like.m in Sources */,
+				D80F97ED1CB7221A00072623 /* User.m in Sources */,
+				D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */,
+				D80F97EC1CB7221A00072623 /* User+CoreDataProperties.m in Sources */,
+				D80F97EB1CB7221A00072623 /* Photo.m in Sources */,
 				D80F97C81CB71D9B00072623 /* ViewController.m in Sources */,
 				D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */,
+				D80F97F11CB7221A00072623 /* Comment.m in Sources */,
 				D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */,
 				D80F97C21CB71D9B00072623 /* main.m in Sources */,
+				D80F97EA1CB7221A00072623 /* Photo+CoreDataProperties.m in Sources */,
+				D80F97EE1CB7221A00072623 /* Like+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

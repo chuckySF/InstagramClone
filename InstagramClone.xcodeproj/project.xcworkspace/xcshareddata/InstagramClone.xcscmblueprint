@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CD70F0B21EC46397362ED98D4D153399480382FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5C72276CC4FE6942AC45F4AD11DCAC589B3A4D24" : 0,
+    "CD70F0B21EC46397362ED98D4D153399480382FD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B30673A9-8D1E-403F-B7C9-17FB3BE2E3CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5C72276CC4FE6942AC45F4AD11DCAC589B3A4D24" : "",
+    "CD70F0B21EC46397362ED98D4D153399480382FD" : "InstagramClone\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "InstagramClone",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "InstagramClone.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/plugh4\/mm-githubtest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5C72276CC4FE6942AC45F4AD11DCAC589B3A4D24"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ravelasquez99\/InstagramClone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CD70F0B21EC46397362ED98D4D153399480382FD"
+    }
+  ]
+}
