@@ -1,5 +1,5 @@
 //
-//  LibraryViewController.h
+//  AddPhotoViewController.h
 //  InstagramClone
 //
 //  Created by Richard Velazquez on 4/7/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LibraryViewController : UIViewController
+@interface AddPhotoViewController : UIViewController
 
 @end

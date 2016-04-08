@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D80F97C21CB71D9B00072623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C11CB71D9B00072623 /* main.m */; };
 		D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C41CB71D9B00072623 /* AppDelegate.m */; };
-		D80F97CB1CB71D9B00072623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F97C91CB71D9B00072623 /* Main.storyboard */; };
 		D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D80F97CC1CB71D9B00072623 /* InstagramClone.xcdatamodeld */; };
 		D80F97D01CB71D9B00072623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80F97CF1CB71D9B00072623 /* Assets.xcassets */; };
 		D80F97D31CB71D9B00072623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F97D11CB71D9B00072623 /* LaunchScreen.storyboard */; };
@@ -24,10 +23,10 @@
 		D80F97F51CB722FE00072623 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97F41CB722FE00072623 /* HomeViewController.m */; };
 		D80F97F81CB7230A00072623 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97F71CB7230A00072623 /* GridViewController.m */; };
 		D80F97FB1CB7231400072623 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97FA1CB7231400072623 /* CommentViewController.m */; };
-		D80F97FE1CB7234E00072623 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97FD1CB7234E00072623 /* CameraViewController.m */; };
-		D80F98011CB7236300072623 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F98001CB7236300072623 /* LibraryViewController.m */; };
 		D80F98041CB7236E00072623 /* FinalizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F98031CB7236E00072623 /* FinalizeViewController.m */; };
 		D80F98071CB723D700072623 /* CreatePhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F98061CB723D700072623 /* CreatePhoto.storyboard */; };
+		D80F98091CB7371A00072623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F98081CB7371A00072623 /* Main.storyboard */; };
+		D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F980B1CB7399C00072623 /* AddPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		D80F97C11CB71D9B00072623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D80F97C31CB71D9B00072623 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D80F97C41CB71D9B00072623 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D80F97CA1CB71D9B00072623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D80F97CD1CB71D9B00072623 /* InstagramClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstagramClone.xcdatamodel; sourceTree = "<group>"; };
 		D80F97CF1CB71D9B00072623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D80F97D21CB71D9B00072623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,13 +60,12 @@
 		D80F97F71CB7230A00072623 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridViewController.m; path = ../GridViewController.m; sourceTree = "<group>"; };
 		D80F97F91CB7231400072623 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentViewController.h; path = ../CommentViewController.h; sourceTree = "<group>"; };
 		D80F97FA1CB7231400072623 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentViewController.m; path = ../CommentViewController.m; sourceTree = "<group>"; };
-		D80F97FC1CB7234E00072623 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = ../CameraViewController.h; sourceTree = "<group>"; };
-		D80F97FD1CB7234E00072623 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = ../CameraViewController.m; sourceTree = "<group>"; };
-		D80F97FF1CB7236300072623 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LibraryViewController.h; path = ../LibraryViewController.h; sourceTree = "<group>"; };
-		D80F98001CB7236300072623 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryViewController.m; path = ../LibraryViewController.m; sourceTree = "<group>"; };
 		D80F98021CB7236E00072623 /* FinalizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinalizeViewController.h; path = ../FinalizeViewController.h; sourceTree = "<group>"; };
 		D80F98031CB7236E00072623 /* FinalizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinalizeViewController.m; path = ../FinalizeViewController.m; sourceTree = "<group>"; };
 		D80F98061CB723D700072623 /* CreatePhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreatePhoto.storyboard; sourceTree = "<group>"; };
+		D80F98081CB7371A00072623 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D80F980A1CB7399C00072623 /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPhotoViewController.h; path = ../AddPhotoViewController.h; sourceTree = "<group>"; };
+		D80F980B1CB7399C00072623 /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPhotoViewController.m; path = ../AddPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +102,7 @@
 				D80F97F21CB7222E00072623 /* Model */,
 				D80F97C31CB71D9B00072623 /* AppDelegate.h */,
 				D80F97C41CB71D9B00072623 /* AppDelegate.m */,
-				D80F97C91CB71D9B00072623 /* Main.storyboard */,
+				D80F98081CB7371A00072623 /* Main.storyboard */,
 				D80F98061CB723D700072623 /* CreatePhoto.storyboard */,
 				D80F97CF1CB71D9B00072623 /* Assets.xcassets */,
 				D80F97D11CB71D9B00072623 /* LaunchScreen.storyboard */,
@@ -156,10 +153,8 @@
 				D80F97F71CB7230A00072623 /* GridViewController.m */,
 				D80F97F91CB7231400072623 /* CommentViewController.h */,
 				D80F97FA1CB7231400072623 /* CommentViewController.m */,
-				D80F97FC1CB7234E00072623 /* CameraViewController.h */,
-				D80F97FD1CB7234E00072623 /* CameraViewController.m */,
-				D80F97FF1CB7236300072623 /* LibraryViewController.h */,
-				D80F98001CB7236300072623 /* LibraryViewController.m */,
+				D80F980A1CB7399C00072623 /* AddPhotoViewController.h */,
+				D80F980B1CB7399C00072623 /* AddPhotoViewController.m */,
 				D80F98021CB7236E00072623 /* FinalizeViewController.h */,
 				D80F98031CB7236E00072623 /* FinalizeViewController.m */,
 			);
@@ -225,8 +220,8 @@
 			files = (
 				D80F97D31CB71D9B00072623 /* LaunchScreen.storyboard in Resources */,
 				D80F97D01CB71D9B00072623 /* Assets.xcassets in Resources */,
-				D80F97CB1CB71D9B00072623 /* Main.storyboard in Resources */,
 				D80F98071CB723D700072623 /* CreatePhoto.storyboard in Resources */,
+				D80F98091CB7371A00072623 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,14 +232,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D80F97FE1CB7234E00072623 /* CameraViewController.m in Sources */,
 				D80F98041CB7236E00072623 /* FinalizeViewController.m in Sources */,
 				D80F97EF1CB7221A00072623 /* Like.m in Sources */,
 				D80F97ED1CB7221A00072623 /* User.m in Sources */,
 				D80F97FB1CB7231400072623 /* CommentViewController.m in Sources */,
 				D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */,
+				D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */,
 				D80F97EC1CB7221A00072623 /* User+CoreDataProperties.m in Sources */,
-				D80F98011CB7236300072623 /* LibraryViewController.m in Sources */,
 				D80F97EB1CB7221A00072623 /* Photo.m in Sources */,
 				D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */,
 				D80F97F11CB7221A00072623 /* Comment.m in Sources */,
@@ -260,14 +254,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D80F97C91CB71D9B00072623 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D80F97CA1CB71D9B00072623 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D80F97D11CB71D9B00072623 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
