@@ -12,6 +12,7 @@
 		2342425E1CB8A15200C82160 /* PhotoCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */; };
 		239C6DD71CB8C1E50026F23A /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */; };
 		239C6DDA1CB8C4B20026F23A /* GridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */; };
+		239C6DDD1CB8D0080026F23A /* GridZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C6DDC1CB8D0080026F23A /* GridZoomViewController.m */; };
 		D80F97C21CB71D9B00072623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C11CB71D9B00072623 /* main.m */; };
 		D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C41CB71D9B00072623 /* AppDelegate.m */; };
 		D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D80F97CC1CB71D9B00072623 /* InstagramClone.xcdatamodeld */; };
@@ -41,6 +42,8 @@
 		239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCollectionViewCell.m; path = ../GridCollectionViewCell.m; sourceTree = "<group>"; };
 		239C6DD81CB8C4B20026F23A /* GridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewFlowLayout.h; sourceTree = "<group>"; };
 		239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewFlowLayout.m; sourceTree = "<group>"; };
+		239C6DDB1CB8D0080026F23A /* GridZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridZoomViewController.h; sourceTree = "<group>"; };
+		239C6DDC1CB8D0080026F23A /* GridZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridZoomViewController.m; sourceTree = "<group>"; };
 		D80F97BD1CB71D9B00072623 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80F97C11CB71D9B00072623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D80F97C31CB71D9B00072623 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */,
 				239C6DD51CB8C1E50026F23A /* GridCollectionViewCell.h */,
 				239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */,
+				239C6DDB1CB8D0080026F23A /* GridZoomViewController.h */,
+				239C6DDC1CB8D0080026F23A /* GridZoomViewController.m */,
 				D80F97F91CB7231400072623 /* CommentViewController.h */,
 				D80F97FA1CB7231400072623 /* CommentViewController.m */,
 				D80F980A1CB7399C00072623 /* AddPhotoViewController.h */,
@@ -255,6 +260,7 @@
 				D80F97EF1CB7221A00072623 /* Like.m in Sources */,
 				D80F97ED1CB7221A00072623 /* User.m in Sources */,
 				D80F97FB1CB7231400072623 /* CommentViewController.m in Sources */,
+				239C6DDD1CB8D0080026F23A /* GridZoomViewController.m in Sources */,
 				D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */,
 				239C6DD71CB8C1E50026F23A /* GridCollectionViewCell.m in Sources */,
 				D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */,

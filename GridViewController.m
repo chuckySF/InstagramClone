@@ -11,6 +11,8 @@
 #import "GridCollectionViewCell.h"
 #import "GridViewFlowLayout.h"
 
+#import "GridZoomViewController.h"
+
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -57,6 +59,25 @@
     GridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridCell" forIndexPath:indexPath];
     [cell.imageView setImage:[UIImage imageNamed:@"chuckTestImage"]];
     return cell;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //if ([segue.identifier isEqual: @"gridZoomSegue"]) {
+    //    GridZoomViewController *gridZoomVC = segue.destinationViewController;
+     //   self.definesPresentationContext = YES; //self is presenting view controller
+      //  gridZoomVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+       // gridZoomVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+       // [self presentViewController:gridZoomVC animated:NO completion:nil];
+    //}
+    
+    
 }
 
 
