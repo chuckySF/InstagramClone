@@ -9,11 +9,20 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
 @implementation HomeViewController
+
+
+#pragma View load/Appear
+
+-(void)viewWillAppear:(BOOL)animated{
+  self.segmentedControl.selectedSegmentIndex = 0;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,17 +31,47 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"Memomry crash");
+
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+  
+  
 }
-*/
+
+#pragma Collection View
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+  return 10;
+  
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+  
+  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeCell" forIndexPath:indexPath];
+  
+  return cell;
+}
+
+
+#pragma Segmented Controll
+- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
+  switch (self.segmentedControl.selectedSegmentIndex) {
+    case 0:
+    break;
+    case 1:
+      [self performSegueWithIdentifier:@"gridSegue" sender: nil];
+
+  
+      
+    default:
+      break;
+  }
+  
+}
+
+
+
+
 
 @end

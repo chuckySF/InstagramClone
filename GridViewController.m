@@ -8,14 +8,26 @@
 
 #import "GridViewController.h"
 
-@interface GridViewController ()
+@interface GridViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
 
 @end
 
 @implementation GridViewController
 
+
+#pragma View did load/ Appear
+-(void)viewWillAppear:(BOOL)animated{
+  [self.navigationItem setHidesBackButton:true];
+  self.segmentedControl.selectedSegmentIndex = 1;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +36,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma Segmented Control
+- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
+  
+  switch (self.segmentedControl.selectedSegmentIndex) {
+    case 0:
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+      [self.navigationController popViewControllerAnimated:false];
+      
+    case 1:
+     break;
+      
+      
+    default:
+      break;
+  }
+  
+  
 }
-*/
+
+#pragma CollectionView
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+  return 10;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+  
+  UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridCell" forIndexPath:indexPath];
+  
+  return cell;
+  
+  
+}
 
 @end

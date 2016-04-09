@@ -43,6 +43,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="T0G-wf-PrB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hga-PK-Vw8"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5Z-1b-d6f">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -65,7 +69,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="B2f-VF-HTZ" kind="show" identifier="addPhotoSegue" id="DW3-Cs-1o3"/>
+                                            <segue destination="B2f-VF-HTZ" kind="show" identifier="homeToAddPhotoSegue" id="DW3-Cs-1o3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -149,14 +153,18 @@
                                 <rect key="frame" x="459" y="8" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Home"/>
+                                    <segment title="Grid"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="AbE-31-S6P"/>
+                                </connections>
                             </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="6zI-dW-M8g" kind="show" identifier="gridSegue" id="BuJ-Jl-eVx"/>
+                        <outlet property="segmentedControl" destination="XiA-0J-KyO" id="OeI-6U-Il0"/>
+                        <segue destination="6zI-dW-M8g" kind="show" identifier="gridSegue" animates="NO" id="BuJ-Jl-eVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -299,6 +307,10 @@
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="6zI-dW-M8g" id="u2G-hd-8Nc"/>
+                                    <outlet property="delegate" destination="6zI-dW-M8g" id="Sih-8o-c2u"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3b-gF-wWV">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -320,6 +332,9 @@
                                                 <include reference="KqK-Kx-KRj"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <segue destination="B2f-VF-HTZ" kind="show" identifier="gridToAddPhotoSegue" id="MTx-3H-H6C"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.22735484140000001" green="0.46805248869999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -400,12 +415,18 @@
                                 <rect key="frame" x="459" y="8" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Home"/>
+                                    <segment title="Grid"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlPressed:" destination="6zI-dW-M8g" eventType="valueChanged" id="Dwg-cR-UK6"/>
+                                </connections>
                             </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="4UR-12-xK0" id="Er7-bz-0aN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOI-r2-skw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -443,6 +464,9 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Add Comment"/>
+                                        <connections>
+                                            <action selector="onAddCommentButtonPressed:" destination="gu1-aM-U2Y" eventType="touchUpInside" id="Ztl-6p-0ch"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cJ-bs-pRp">
                                         <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -564,23 +588,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NC-7B-5sD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="afv-9g-mNj"/>
-                                </constraints>
-                                <state key="normal" title="Share"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="afv-9g-mNj"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="afv-9g-mNj"/>
-                                    </mask>
-                                </variation>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FJc-ZU-HeX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.82065304490000002" green="0.71024413099999995" blue="0.1047155775" alpha="1" colorSpace="calibratedRGB"/>
@@ -621,6 +628,26 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NC-7B-5sD">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="afv-9g-mNj"/>
+                                </constraints>
+                                <state key="normal" title="Share"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="afv-9g-mNj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="afv-9g-mNj"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="i2l-Sf-Xbn" kind="unwind" unwindAction="prepareForUnwind:" id="U6i-j9-Q8S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -635,9 +662,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="2NC-7B-5sD"/>
                                 <exclude reference="FJc-ZU-HeX"/>
                                 <exclude reference="Py0-eW-PKO"/>
+                                <exclude reference="2NC-7B-5sD"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="tq2-nv-ya6"/>
@@ -652,9 +679,9 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="2NC-7B-5sD"/>
                                 <include reference="FJc-ZU-HeX"/>
                                 <include reference="Py0-eW-PKO"/>
+                                <include reference="2NC-7B-5sD"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="tq2-nv-ya6"/>
@@ -671,6 +698,7 @@
                     <navigationItem key="navigationItem" title="Finalize" id="tuQ-dg-2HI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKk-w5-pfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="i2l-Sf-Xbn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1701" y="1589"/>
         </scene>
@@ -693,4 +721,7 @@
             <point key="canvasLocation" x="-58.5" y="798"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DW3-Cs-1o3"/>
+    </inferredMetricsTieBreakers>
 </document>
