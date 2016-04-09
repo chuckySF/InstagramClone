@@ -7,6 +7,8 @@
 //  Copyright © 2016 Team4. All rights reserved.
 //
 
+// made changes 7:08
+
 #import "HomeViewController.h"
 
 @interface HomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
