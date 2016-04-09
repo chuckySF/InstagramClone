@@ -12,9 +12,10 @@
 #import "HomeViewController.h"
 #import "AppDelegate.h"
 #import "Photo.h"
-#import "PhotoCollectionViewCell.h"
+#import "PhotoTableViewCell.h"
 
-@interface HomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property NSMutableArray *photos;
 @property NSManagedObjectContext *moc;
@@ -104,23 +105,25 @@
 }
 
 
-#pragma Collection View
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+#pragma Table View
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   return self.photos.count;
-  
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
   Photo *tempPhoto = [self.photos objectAtIndex:indexPath.row];
-
   
-  PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"homeCell" forIndexPath:indexPath];
+  PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+  
   NSData *imageData = tempPhoto.photoImage;
-  cell.imageView.image = [UIImage imageWithData:imageData];
+  cell.photoImageView.image = [UIImage imageWithData:imageData];
+  cell.profileImageView.image = [UIImage imageNamed:@"image2"];
   
   return cell;
 }
+
+  
 
 
 #pragma Segmented Controll
