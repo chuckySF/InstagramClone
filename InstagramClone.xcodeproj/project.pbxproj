@@ -29,6 +29,7 @@
 		D80F98041CB7236E00072623 /* FinalizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F98031CB7236E00072623 /* FinalizeViewController.m */; };
 		D80F98091CB7371A00072623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F98081CB7371A00072623 /* Main.storyboard */; };
 		D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F980B1CB7399C00072623 /* AddPhotoViewController.m */; };
+		D85D1B231CB8B5DE000D9E31 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D1B221CB8B5DE000D9E31 /* PhotoCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		D80F98081CB7371A00072623 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D80F980A1CB7399C00072623 /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddPhotoViewController.h; path = ../AddPhotoViewController.h; sourceTree = "<group>"; };
 		D80F980B1CB7399C00072623 /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPhotoViewController.m; path = ../AddPhotoViewController.m; sourceTree = "<group>"; };
+		D85D1B211CB8B5DE000D9E31 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		D85D1B221CB8B5DE000D9E31 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				D80F97F31CB722FE00072623 /* HomeViewController.h */,
 				D80F97F41CB722FE00072623 /* HomeViewController.m */,
+				D85D1B211CB8B5DE000D9E31 /* PhotoCollectionViewCell.h */,
+				D85D1B221CB8B5DE000D9E31 /* PhotoCollectionViewCell.m */,
 				D80F97F61CB7230A00072623 /* GridViewController.h */,
 				D80F97F71CB7230A00072623 /* GridViewController.m */,
 				D80F97F91CB7231400072623 /* CommentViewController.h */,
@@ -242,6 +247,7 @@
 			files = (
 				D80F98041CB7236E00072623 /* FinalizeViewController.m in Sources */,
 				D80F97EF1CB7221A00072623 /* Like.m in Sources */,
+				D85D1B231CB8B5DE000D9E31 /* PhotoCollectionViewCell.m in Sources */,
 				D80F97ED1CB7221A00072623 /* User.m in Sources */,
 				D80F97FB1CB7231400072623 /* CommentViewController.m in Sources */,
 				D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */,
