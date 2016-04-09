@@ -10,6 +10,8 @@
 		2342425A1CB8A0E000C82160 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234242591CB8A0E000C82160 /* Comment.storyboard */; };
 		2342425C1CB8A11100C82160 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425B1CB8A11100C82160 /* Grid.storyboard */; };
 		2342425E1CB8A15200C82160 /* PhotoCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */; };
+		239C6DD71CB8C1E50026F23A /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */; };
+		239C6DDA1CB8C4B20026F23A /* GridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */; };
 		D80F97C21CB71D9B00072623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C11CB71D9B00072623 /* main.m */; };
 		D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C41CB71D9B00072623 /* AppDelegate.m */; };
 		D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D80F97CC1CB71D9B00072623 /* InstagramClone.xcdatamodeld */; };
@@ -35,6 +37,10 @@
 		234242591CB8A0E000C82160 /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		2342425B1CB8A11100C82160 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
 		2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoCreation.storyboard; sourceTree = "<group>"; };
+		239C6DD51CB8C1E50026F23A /* GridCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridCollectionViewCell.h; path = ../GridCollectionViewCell.h; sourceTree = "<group>"; };
+		239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCollectionViewCell.m; path = ../GridCollectionViewCell.m; sourceTree = "<group>"; };
+		239C6DD81CB8C4B20026F23A /* GridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewFlowLayout.h; sourceTree = "<group>"; };
+		239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewFlowLayout.m; sourceTree = "<group>"; };
 		D80F97BD1CB71D9B00072623 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80F97C11CB71D9B00072623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D80F97C31CB71D9B00072623 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +163,10 @@
 				D80F97F41CB722FE00072623 /* HomeViewController.m */,
 				D80F97F61CB7230A00072623 /* GridViewController.h */,
 				D80F97F71CB7230A00072623 /* GridViewController.m */,
+				239C6DD81CB8C4B20026F23A /* GridViewFlowLayout.h */,
+				239C6DD91CB8C4B20026F23A /* GridViewFlowLayout.m */,
+				239C6DD51CB8C1E50026F23A /* GridCollectionViewCell.h */,
+				239C6DD61CB8C1E50026F23A /* GridCollectionViewCell.m */,
 				D80F97F91CB7231400072623 /* CommentViewController.h */,
 				D80F97FA1CB7231400072623 /* CommentViewController.m */,
 				D80F980A1CB7399C00072623 /* AddPhotoViewController.h */,
@@ -198,6 +208,7 @@
 				TargetAttributes = {
 					D80F97BC1CB71D9B00072623 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = JT2GERLFU6;
 					};
 				};
 			};
@@ -245,6 +256,7 @@
 				D80F97ED1CB7221A00072623 /* User.m in Sources */,
 				D80F97FB1CB7231400072623 /* CommentViewController.m in Sources */,
 				D80F97F01CB7221A00072623 /* Comment+CoreDataProperties.m in Sources */,
+				239C6DD71CB8C1E50026F23A /* GridCollectionViewCell.m in Sources */,
 				D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */,
 				D80F97EC1CB7221A00072623 /* User+CoreDataProperties.m in Sources */,
 				D80F97EB1CB7221A00072623 /* Photo.m in Sources */,
@@ -255,6 +267,7 @@
 				D80F97C21CB71D9B00072623 /* main.m in Sources */,
 				D80F97EA1CB7221A00072623 /* Photo+CoreDataProperties.m in Sources */,
 				D80F97EE1CB7221A00072623 /* Like+CoreDataProperties.m in Sources */,
+				239C6DDA1CB8C4B20026F23A /* GridViewFlowLayout.m in Sources */,
 				D80F97F51CB722FE00072623 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,11 +374,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InstagramClone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyvelasquez.InstagramClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -373,11 +390,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InstagramClone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rickyvelasquez.InstagramClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
