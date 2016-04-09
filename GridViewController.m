@@ -6,6 +6,8 @@
 //  Copyright © 2016 Team4. All rights reserved.
 //
 
+// I'm going to start making changess
+
 #import "GridViewController.h"
 
 @interface GridViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
