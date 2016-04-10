@@ -87,7 +87,7 @@
     
     newPhoto.photoImage = UIImageJPEGRepresentation(newImage, 1.0);
     newPhoto.photoDescription = [descriptions objectAtIndex:i];
-    newPhoto.photoTimestamp = nil;
+    newPhoto.photoTimestamp = [NSDate date];
     
     newPhoto.user = defaultUser;
     
@@ -129,21 +129,35 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
+  //grabbing temporary photo item
   Photo *tempPhoto = [self.photos objectAtIndex:indexPath.row];
   
   //casting as user
   User *tempUser = (User *)tempPhoto.user;
-  NSLog(@"the user for this photo is %@", tempUser.userName);
+  //NSLog(@"the user for this photo is %@", tempUser.userName);
   
+  //creating cell
   PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
   
+  //seting image info
   NSData *imageData = tempPhoto.photoImage;
   cell.photoImageView.image = [UIImage imageWithData:imageData];
   cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
   cell.pictureDescription.text = tempPhoto.photoDescription;
-  cell.datePosted.text = @"my date";
+  
+ //date code
+  float timeSincePosting = [tempPhoto.photoTimestamp timeIntervalSinceNow] * -1;
+  float timeSincePostingInMinutes = timeSincePosting/60;
+  int minsInt = timeSincePostingInMinutes / 1;
+  cell.datePosted.text = [self convertTimeInMinutesToString:minsInt];
+  
+  NSLog(@"%i",minsInt);
+  
+  
   
   NSString *likeCount = [NSString stringWithFormat:@"%lu", tempPhoto.likes.count];
+  
+  
   cell.likeCount.text = likeCount;
 
   
@@ -152,7 +166,46 @@
   return cell;
 }
 
+-(NSString *)convertTimeInMinutesToString:(int)minutes{
+  if (minutes < 1)
+  {
+    NSString *returnedString = @"Less than one minute ago";
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }
+  else if (minutes < 60)
+  {
+    NSString *returnedString = [NSString stringWithFormat:@"%i minutes ago", minutes];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }
+  else if (minutes > 60 && minutes < (60 * 24))
+  {
+    int hours = minutes / 60;
+    NSString *returnedString = [NSString stringWithFormat:@"%i hours ago", hours];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }
+  else if (minutes > (60 * 24) && minutes < (60 * 24 * 7))
+  {
+    int days = minutes / (60 * 24);
+    NSString *returnedString = [NSString stringWithFormat:@"%i days ago", days];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }
+  else if (minutes > (60 * 24 * 7))
+  {
+    int weeks = minutes / (60 * 24 * 7);
+    NSString *returnedString = [NSString stringWithFormat:@"%i weeks ago", weeks];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }
+  else {
+    return nil;
+  }
   
+  
+}
 
 
 #pragma Segmented Controll
