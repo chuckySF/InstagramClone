@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
+#import "User.h"
 
 @interface CommentViewController : UIViewController
+@property Photo *photo;
+@property User *user;
+
 
 @end
