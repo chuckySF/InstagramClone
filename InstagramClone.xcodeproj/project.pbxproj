@@ -33,6 +33,7 @@
 		D85D1B261CB98B79000D9E31 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D1B251CB98B79000D9E31 /* PhotoTableViewCell.m */; };
 		D8BE28AF1CB9ACE9002C7500 /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE28AC1CB9ACE9002C7500 /* GridCollectionViewCell.m */; };
 		D8BE28B01CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE28AE1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m */; };
+		D8F6C24C1CBB13F7006ABEA6 /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6C24B1CBB13F7006ABEA6 /* ZoomImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		D8BE28AC1CB9ACE9002C7500 /* GridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCollectionViewCell.m; path = ../GridCollectionViewCell.m; sourceTree = "<group>"; };
 		D8BE28AD1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridCollectionViewFlowLayout.h; path = ../GridCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		D8BE28AE1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCollectionViewFlowLayout.m; path = ../GridCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D8F6C24A1CBB13F7006ABEA6 /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoomImageViewController.h; path = ../ZoomImageViewController.h; sourceTree = "<group>"; };
+		D8F6C24B1CBB13F7006ABEA6 /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoomImageViewController.m; path = ../ZoomImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				D80F97F41CB722FE00072623 /* HomeViewController.m */,
 				D85D1B241CB98B79000D9E31 /* PhotoTableViewCell.h */,
 				D85D1B251CB98B79000D9E31 /* PhotoTableViewCell.m */,
+				D8F6C24A1CBB13F7006ABEA6 /* ZoomImageViewController.h */,
+				D8F6C24B1CBB13F7006ABEA6 /* ZoomImageViewController.m */,
 				D80F97F61CB7230A00072623 /* GridViewController.h */,
 				D80F97F71CB7230A00072623 /* GridViewController.m */,
 				D8BE28AB1CB9ACE9002C7500 /* GridCollectionViewCell.h */,
@@ -272,6 +277,7 @@
 				D8BE28B01CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m in Sources */,
 				7B5726B31CB97B83005D5F26 /* CommentCellTableViewCell.m in Sources */,
 				D80F97EB1CB7221A00072623 /* Photo.m in Sources */,
+				D8F6C24C1CBB13F7006ABEA6 /* ZoomImageViewController.m in Sources */,
 				D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */,
 				D80F97F11CB7221A00072623 /* Comment.m in Sources */,
 				D80F97F81CB7230A00072623 /* GridViewController.m in Sources */,
