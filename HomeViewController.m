@@ -15,6 +15,8 @@
 #import "PhotoTableViewCell.h"
 #import "Comment.h"
 #import "User.h"
+#import "GridViewController.h"
+#import "CommentViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
@@ -32,6 +34,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
   self.segmentedControl.selectedSegmentIndex = 0;
+  
   
 }
 
@@ -240,7 +243,24 @@
 
 #pragma User Interaction
 -(void)didTapZoom:(UIButton *)button{
-  
+
+}
+
+#pragma Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  if ([segue.identifier isEqualToString:@"gridSegue"]){
+    GridViewController *destVC =  segue.destinationViewController;
+    destVC.photos = self.photos;
+  } else if ([segue.identifier isEqualToString:@"commentSegue"]){
+    CommentViewController *destVC = segue.destinationViewController;
+    Photo *passedPhoto = [self.photos objectAtIndex:0];
+    User *passedUser = (User *)passedPhoto.user;
+    
+    destVC.photo = passedPhoto;
+    destVC.user = passedUser;
+    
+    
+  }
 }
 
 

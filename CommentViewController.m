@@ -29,7 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //setting the pointer to the delegate
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.moc = appDelegate.managedObjectContext;
     
@@ -46,6 +45,9 @@
 
     
     [self.tableView reloadData];
+    NSLog(@"Photo: %@", self.photo);
+  NSLog(@"User: %@", self.user);
+    // Do any additional setup after loading the view.
 }
 
 
