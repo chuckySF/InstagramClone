@@ -141,6 +141,10 @@
   cell.photoImageView.image = [UIImage imageWithData:imageData];
   cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
   cell.pictureDescription.text = tempPhoto.photoDescription;
+  cell.datePosted.text = @"my date";
+  
+  NSString *likeCount = [NSString stringWithFormat:@"%lu", tempPhoto.likes.count];
+  cell.likeCount.text = likeCount;
 
   
   [cell.userNameButtonOutlet setTitle:tempUser.userName forState:UIControlStateNormal];

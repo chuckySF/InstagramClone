@@ -492,6 +492,8 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="datePosted" destination="HBh-1E-jYA" id="MCB-n4-kDC"/>
+                                            <outlet property="likeCount" destination="c28-6t-uxy" id="o7Y-nm-Acl"/>
                                             <outlet property="photoImageView" destination="sKP-wz-QZm" id="g1B-XN-HPV"/>
                                             <outlet property="pictureDescription" destination="KVP-JZ-Y5K" id="1p9-wR-32d"/>
                                             <outlet property="profileImageView" destination="4fO-Ce-Sfj" id="wM8-rq-gcv"/>
