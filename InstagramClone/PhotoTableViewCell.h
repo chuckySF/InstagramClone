@@ -11,5 +11,7 @@
 @interface PhotoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIButton *userNameButtonOutlet;
+@property (weak, nonatomic) IBOutlet UITextView *pictureDescription;
 
 @end

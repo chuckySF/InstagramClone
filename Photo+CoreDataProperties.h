@@ -10,6 +10,7 @@
 //
 
 #import "Photo.h"
+@class User;
 
 NS_ASSUME_NONNULL_BEGIN
 

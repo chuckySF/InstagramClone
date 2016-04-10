@@ -13,6 +13,8 @@
 #import "AppDelegate.h"
 #import "Photo.h"
 #import "PhotoTableViewCell.h"
+#import "Comment.h"
+#import "User.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -30,6 +32,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
   self.segmentedControl.selectedSegmentIndex = 0;
+  
 }
 
 
@@ -62,17 +65,31 @@
 #pragma CoreData
 -(void)createDefaultPhotosAndSaveToCoreData{
   self.photos = [NSMutableArray new];
+  NSString *d1 = @"Hi I hope you like this picture";
+  NSString *d2 = @"Woah, I'm like a #legit photographer";
+  NSString *d3 = @"I think I'll delete this one #deleting";
+  NSString *d4 = @"#damn you guys messed up now";
+  NSString *d5 = @" Hi, my name is #what, my name is #who";
+  
+  NSArray *descriptions = @[d1,d2,d3,d4,d5];
+  
+  User *defaultUser= [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
+  defaultUser.userName = @"DoubleClickRick";
+  UIImage *userProfilePicture = [UIImage imageNamed:@"image0"];
+  defaultUser.userImage = UIImageJPEGRepresentation(userProfilePicture, 1.0);
   
   for (int i = 0; i < 5; i++) {
    
     NSString *photoString = [NSString stringWithFormat:@"image%i", i];
     UIImage *newImage = [UIImage imageNamed:photoString];
     
-    
     Photo *newPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:self.moc];
+    
     newPhoto.photoImage = UIImageJPEGRepresentation(newImage, 1.0);
-    newPhoto.photoDescription = [NSString stringWithFormat:@"Image:%i description", i];
+    newPhoto.photoDescription = [descriptions objectAtIndex:i];
     newPhoto.photoTimestamp = nil;
+    
+    newPhoto.user = defaultUser;
     
     [self.photos addObject:newPhoto];
   }
@@ -114,11 +131,19 @@
   
   Photo *tempPhoto = [self.photos objectAtIndex:indexPath.row];
   
+  //casting as user
+  User *tempUser = (User *)tempPhoto.user;
+  NSLog(@"the user for this photo is %@", tempUser.userName);
+  
   PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
   
   NSData *imageData = tempPhoto.photoImage;
   cell.photoImageView.image = [UIImage imageWithData:imageData];
-  cell.profileImageView.image = [UIImage imageNamed:@"image2"];
+  cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
+  cell.pictureDescription.text = tempPhoto.photoDescription;
+
+  
+  [cell.userNameButtonOutlet setTitle:tempUser.userName forState:UIControlStateNormal];
   
   return cell;
 }
