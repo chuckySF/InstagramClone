@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Photo.h"
 #import "PhotoTableViewCell.h"
+#import "GridViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -140,6 +141,22 @@
       break;
   }
   
+}
+
+
+
+#pragma Pass photos array in segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"gridSegue"]) {
+        
+        GridViewController *gridVC = segue.destinationViewController;
+        gridVC.photos = self.photos;
+        
+        
+        
+    }
+    
+    
 }
 
 

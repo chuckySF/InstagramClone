@@ -11,6 +11,8 @@
 #import "GridCollectionViewCell.h"
 #import "GridCollectionViewFlowLayout.h"
 
+#import "Photo.h"
+
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -25,13 +27,21 @@
 #pragma View did load/ Appear
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.collectionView.delegate = self;
     self.collectionView.collectionViewLayout = [[GridCollectionViewFlowLayout alloc] init];
+    
+    
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setHidesBackButton:true];
     self.segmentedControl.selectedSegmentIndex = 1;
+    
+    
+    
 }
 
 
@@ -51,15 +61,16 @@
 #pragma CollectionView
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return self.photos.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridCell" forIndexPath:indexPath];
-    [cell.imageView setImage:[UIImage imageNamed:@"image1"]];
     
-    //cell.imageView.center = CGPointMake(cell.contentView.bounds.size.width/2, cell.contentView.bounds.size.height/2);
+    UIImage *photoImage = [UIImage imageWithData:[[self.photos objectAtIndex:indexPath.row] photoImage]];
     
+    
+    [cell.imageView setImage:photoImage];
 
     
     return cell;
