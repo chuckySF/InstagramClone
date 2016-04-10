@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"Photo: %@", self.photo);
+  NSLog(@"User: %@", self.user);
     // Do any additional setup after loading the view.
 }
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GridViewController : UIViewController
+@property NSMutableArray *photos;
 
 @end

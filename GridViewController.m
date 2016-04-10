@@ -27,6 +27,7 @@
     [super viewDidLoad];
     self.collectionView.delegate = self;
     self.collectionView.collectionViewLayout = [[GridCollectionViewFlowLayout alloc] init];
+    NSLog(@"%lu",(unsigned long)self.photos.count);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
