@@ -17,13 +17,16 @@
 #import "User.h"
 #import "GridViewController.h"
 #import "CommentViewController.h"
+#import "ZoomImageViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property NSMutableArray *photos;
 @property NSManagedObjectContext *moc;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIImage *zoomImage;
+
 
 @end
 
@@ -50,8 +53,6 @@
       [self createDefaultPhotosAndSaveToCoreData];
     }
   
-  [self.collectionView reloadData];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -243,22 +244,42 @@
 
 #pragma User Interaction
 -(void)didTapZoom:(UIButton *)button{
-
+  
+  //gets the appropriate cell
+  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
+  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+  Photo *zommedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  
+  //gets the image for that cell and saves it for public access so we have it in prepare for segue
+  NSData *imageData = zommedPhoto.photoImage;
+  self.zoomImage = [UIImage imageWithData:imageData];
+  
+  [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
+  
+  
 }
 
 #pragma Segues
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   if ([segue.identifier isEqualToString:@"gridSegue"]){
+    
     GridViewController *destVC =  segue.destinationViewController;
     destVC.photos = self.photos;
-  } else if ([segue.identifier isEqualToString:@"commentSegue"]){
+    
+  }
+  else if ([segue.identifier isEqualToString:@"commentSegue"]){
+    
     CommentViewController *destVC = segue.destinationViewController;
     Photo *passedPhoto = [self.photos objectAtIndex:0];
     User *passedUser = (User *)passedPhoto.user;
     
     destVC.photo = passedPhoto;
     destVC.user = passedUser;
+  }
+  else if ([segue.identifier isEqualToString:@"zoomSegue"]){
     
+    ZoomImageViewController *destVC = segue.destinationViewController;
+    destVC.passedImage = self.zoomImage;
     
   }
 }
