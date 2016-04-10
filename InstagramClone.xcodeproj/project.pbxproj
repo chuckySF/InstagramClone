@@ -10,6 +10,7 @@
 		2342425A1CB8A0E000C82160 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234242591CB8A0E000C82160 /* Comment.storyboard */; };
 		2342425C1CB8A11100C82160 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425B1CB8A11100C82160 /* Grid.storyboard */; };
 		2342425E1CB8A15200C82160 /* PhotoCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */; };
+		7B5726B31CB97B83005D5F26 /* CommentCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */; };
 		D80F97C21CB71D9B00072623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C11CB71D9B00072623 /* main.m */; };
 		D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C41CB71D9B00072623 /* AppDelegate.m */; };
 		D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D80F97CC1CB71D9B00072623 /* InstagramClone.xcdatamodeld */; };
@@ -38,6 +39,8 @@
 		234242591CB8A0E000C82160 /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		2342425B1CB8A11100C82160 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
 		2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoCreation.storyboard; sourceTree = "<group>"; };
+		7B5726B11CB97B83005D5F26 /* CommentCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCellTableViewCell.h; sourceTree = "<group>"; };
+		7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCellTableViewCell.m; sourceTree = "<group>"; };
 		D80F97BD1CB71D9B00072623 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80F97C11CB71D9B00072623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D80F97C31CB71D9B00072623 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				D80F97E71CB7221A00072623 /* Comment+CoreDataProperties.m */,
 				D80F97E81CB7221A00072623 /* Comment.h */,
 				D80F97E91CB7221A00072623 /* Comment.m */,
+				7B5726B11CB97B83005D5F26 /* CommentCellTableViewCell.h */,
+				7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */,
 				D80F97EC1CB7221A00072623 /* User+CoreDataProperties.m in Sources */,
 				D8BE28B01CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m in Sources */,
+				7B5726B31CB97B83005D5F26 /* CommentCellTableViewCell.m in Sources */,
 				D80F97EB1CB7221A00072623 /* Photo.m in Sources */,
 				D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */,
 				D80F97F11CB7221A00072623 /* Comment.m in Sources */,
