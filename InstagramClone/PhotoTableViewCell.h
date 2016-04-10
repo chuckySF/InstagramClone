@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol PhotoTableViewCellDelegate
+-(void)didTapZoom:(UIButton *)button;
+
+@end
+
+
 
 @interface PhotoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
@@ -15,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *pictureDescription;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *datePosted;
+@property (nonatomic, assign) id <PhotoTableViewCellDelegate> delegate;
 
 @end

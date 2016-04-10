@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onZoomButtonPressed:(UIButton *)sender {
+  [self.delegate didTapZoom:sender];
+}
+
+
 @end

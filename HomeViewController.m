@@ -17,7 +17,7 @@
 #import "User.h"
 
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property NSMutableArray *photos;
 @property NSManagedObjectContext *moc;
@@ -163,6 +163,9 @@
   
   [cell.userNameButtonOutlet setTitle:tempUser.userName forState:UIControlStateNormal];
   
+  //delegate stuff
+  cell.delegate = self;
+  
   return cell;
 }
 
@@ -178,6 +181,12 @@
     NSString *returnedString = [NSString stringWithFormat:@"%i minutes ago", minutes];
     NSLog(@"%@ was returned",returnedString);
     return returnedString;
+  }else if (minutes > 60 && minutes < 120)
+  {
+    int hours = minutes / 60;
+    NSString *returnedString = [NSString stringWithFormat:@"%i hour ago", hours];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
   }
   else if (minutes > 60 && minutes < (60 * 24))
   {
@@ -190,6 +199,11 @@
   {
     int days = minutes / (60 * 24);
     NSString *returnedString = [NSString stringWithFormat:@"%i days ago", days];
+    NSLog(@"%@ was returned",returnedString);
+    return returnedString;
+  }else if (minutes > (60 * 24 * 7) && minutes < (60 * 24 * 14)){
+    int weeks = minutes / (60 * 24 * 7);
+    NSString *returnedString = [NSString stringWithFormat:@"%i week ago", weeks];
     NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
@@ -208,7 +222,7 @@
 }
 
 
-#pragma Segmented Controll
+#pragma Segmented Control
 - (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
   switch (self.segmentedControl.selectedSegmentIndex) {
     case 0:
@@ -224,6 +238,10 @@
   
 }
 
+#pragma User Interaction
+-(void)didTapZoom:(UIButton *)button{
+  
+}
 
 
 
