@@ -13,18 +13,18 @@
 #import "AppDelegate.h"
 #import "CommentCellTableViewCell.h"
 
-@interface CommentViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *enterCommentTextField;
+@interface CommentViewController ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *addCommentButton;
 @property (weak, nonatomic) IBOutlet UIView *addCommentBackgroundView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *comments;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *enterCommentTextField;
 
 @end
 
 @implementation CommentViewController
+@synthesize scrollView;
 
 
 - (void)viewDidLoad {
@@ -35,10 +35,11 @@
     
     self.comments = [NSMutableArray new];
     
+    //keyboard stuff
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-  //comment view scrolll code [self registerForKeyboardNotifications];
     
     self.comments = [[self.photo.comments allObjects] mutableCopy] ;
 //    self.comments = [[self.user.comments allObjects] mutableCopy] ;
@@ -49,13 +50,13 @@
 
 
 -(void)viewWillDisappear:(BOOL)animated{
-  //comment view scroll code: [self deRegisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma tableView
 
@@ -109,6 +110,9 @@
     
     //setting the textfield blank
     self.enterCommentTextField.text = @"";
+    
+    //dismiis keyboard
+    [self dismissKeyboard:sender];
 }
 
 
@@ -142,6 +146,33 @@
 }
 
 
+#pragma scrollview
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
+    [scrollView setContentOffset:scrollPoint animated: YES];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+ 
+    [scrollView setContentOffset:CGPointZero animated: YES];
+}
+
+//resign the keyboard
+-(BOOL) textFieldShouldReturn: (UITextField *) textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+-(void) dismissKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+    [self.enterCommentTextField resignFirstResponder];
+
+}
 
 
 
@@ -189,87 +220,6 @@
 
 
 
-
-
-#pragma Comments textfield scrolling up
-//http://masteringios.com/blog/2013/10/04/how-to-make-uitextfield-move-up-when-keyboard-is-present/
-
-//
-//- (void)registerForKeyboardNotifications {
-//  [[NSNotificationCenter defaultCenter] addObserver:self
-//                                           selector:@selector(keyboardWasShown:)
-//                                               name:UIKeyboardDidShowNotification
-//                                             object:nil];
-//  
-//  [[NSNotificationCenter defaultCenter] addObserver:self
-//                                           selector:@selector(keyboardWillBeHidden:)
-//                                               name:UIKeyboardWillHideNotification
-//                                             object:nil];
-//  
-//  
-//}
-//
-//- (void)deRegisterForKeyboardNotifications {
-//  [[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                  name:UIKeyboardDidHideNotification
-//                                                object:nil];
-//  
-//  [[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                  name:UIKeyboardWillHideNotification
-//                                                object:nil];
-//  
-//}
-//
-//- (void)keyboardWasShown:(NSNotification *)notification {
-//  
-//  NSDictionary* info = [notification userInfo];
-//  
-//  CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-//  
-//  CGPoint commentButtonOrigin = self.addCommentButton.frame.origin;
-//  CGPoint enterCommentTextFieldOrigin = self.enterCommentTextField.frame.origin;
-//  CGPoint addCommentBackgroundViewOrigin = self.addCommentBackgroundView.frame.origin;
-//
-//
-//  CGFloat commentButtonHeight = self.addCommentButton.frame.size.height;
-//  CGFloat enterCommentTextFieldHeight = self.enterCommentTextField.frame.size.height;
-//
-//  
-//  CGRect visibleRect = self.view.frame;
-//  
-//  visibleRect.size.height -= keyboardSize.height;
-//  
-//  if (!CGRectContainsPoint(visibleRect, commentButtonOrigin)){
-//    
-//    CGPoint scrollPoint = CGPointMake(0.0, commentButtonOrigin.y - visibleRect.size.height + commentButtonHeight);
-//    
-//    [self.scrollView setContentOffset:scrollPoint animated:YES];
-//    
-//  }
-//  
-//  if (!CGRectContainsPoint(visibleRect, enterCommentTextFieldOrigin)){
-//    
-//    CGPoint scrollPoint = CGPointMake(0.0, enterCommentTextFieldOrigin.y - visibleRect.size.height + enterCommentTextFieldHeight);
-//    
-//    [self.scrollView setContentOffset:scrollPoint animated:YES];
-//    
-//  }
-//  
-//  if (!CGRectContainsPoint(visibleRect, addCommentBackgroundViewOrigin)){
-//    
-//    CGPoint scrollPoint = CGPointMake(0.0, enterCommentTextFieldOrigin.y - visibleRect.size.height + enterCommentTextFieldHeight);
-//    
-//    [self.scrollView setContentOffset:scrollPoint animated:YES];
-//    
-//  }
-//  
-//}
-//
-//- (void)keyboardWillBeHidden:(NSNotification *)notification {
-//  
-//  [self.scrollView setContentOffset:CGPointZero animated:YES];
-//  
-//}
 
 
 

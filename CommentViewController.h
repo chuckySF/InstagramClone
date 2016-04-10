@@ -13,6 +13,7 @@
 @interface CommentViewController : UIViewController
 @property Photo *photo;
 @property User *user;
+@property (weak, nonatomic) IBOutlet UITableView *scrollView;
 
 
 @end
