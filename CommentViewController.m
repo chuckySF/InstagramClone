@@ -33,7 +33,6 @@
     self.moc = appDelegate.managedObjectContext;
 //     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
     
-    self.comments = [NSMutableArray new];
     
     //keyboard stuff
     
@@ -41,10 +40,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    self.comments = [NSMutableArray new];
+    
     self.comments = [[self.photo.comments allObjects] mutableCopy] ;
+    
     //testing relationships
     NSLog(@"ckeck this out %@", self.photo.comments);
-//    self.comments = [[self.user.comments allObjects] mutableCopy] ;
 
     
     [self.tableView reloadData];
