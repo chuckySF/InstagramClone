@@ -19,7 +19,7 @@
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *comments;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextField *enterCommentTextField;
+@property (weak, nonatomic) IBOutlet UITextField *enterCommentTextfield;
 
 @end
 
@@ -31,22 +31,24 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.moc = appDelegate.managedObjectContext;
+//     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
     
     self.comments = [NSMutableArray new];
     
     //keyboard stuff
-
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     self.comments = [[self.photo.comments allObjects] mutableCopy] ;
+    //testing relationships
+    NSLog(@"ckeck this out %@", self.photo.comments);
 //    self.comments = [[self.user.comments allObjects] mutableCopy] ;
 
     
     [self.tableView reloadData];
-    NSLog(@"Photo: %@", self.photo);
-  NSLog(@"User: %@", self.user);
+
     // Do any additional setup after loading the view.
 }
 
@@ -68,9 +70,19 @@
     
     Comment *comment = [self.comments objectAtIndex:indexPath.row];
     
-    cell.textCell.text = comment.commentText;
+    cell.commentLabelCell.text = comment.commentText;
     
-    cell.imageCell.image = [UIImage imageNamed:@"cartoon"];
+    cell.nameLabelCell.text = self.user.userName;
+    
+    NSData *imageData = self.user.userImage;
+    
+    cell.imageCell.image = [UIImage imageWithData:imageData];
+    
+    //date code
+    float timeSincePosting = [comment.commentTimestamp timeIntervalSinceNow] * -1;
+    float timeSincePostingInMinutes = timeSincePosting/60;
+    int minsInt = timeSincePostingInMinutes / 1;
+    cell.timeLabelCell.text = [self convertTimeInMinutesToString:minsInt];
     
     return cell;
 }
@@ -91,30 +103,33 @@
     
     //adding the comment to the user
     [self.user addCommentsObject:comment];
-    comment.commentText = self.enterCommentTextField.text;
 
-    
     //adding the comment to the Photo
     [self.photo addCommentsObject:comment];
-    comment.commentText = self.enterCommentTextField.text;
-
     
+    //adding values to attributes
+    
+    comment.commentText = self.enterCommentTextfield.text;
+    
+    comment.commentTimestamp = [NSDate date];
+
     //saving in coreData
     NSError *error;
     
-    
     if ([self.moc save:&error]){
         [self.comments addObject:comment];
-        NSLog(@"%@", comment);
+        NSLog(@"%@,  %lu  in the array", comment, self.comments.count);
     }else{
         NSLog(@"an error has occurred,...%@",error);
     }
     
-    //setting the textfield blank
-    self.enterCommentTextField.text = @"";
-    
     //dismiis keyboard
     [self dismissKeyboard:sender];
+    [self.enterCommentTextfield setText:@""];
+
+    
+    [self.tableView reloadData];
+
 }
 
 
@@ -137,7 +152,7 @@
     
     NSError *error;
     if ([self.moc save:&error]) {
-        NSLog(@"the cat was deleted");
+        NSLog(@"the picture was deleted");
     }else {
         NSLog(@"ERROR: %@", error);
     }
@@ -148,7 +163,7 @@
 }
 
 
-#pragma scrollview
+#pragma textfield
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
@@ -169,12 +184,69 @@
 }
 
 
+
+
 -(void) dismissKeyboard:(id)sender
 {
     [self.view endEditing:YES];
-    [self.enterCommentTextField resignFirstResponder];
+    [self.enterCommentTextfield resignFirstResponder];
 
 }
+
+#pragma setting the comment time stamp
+
+
+-(NSString *)convertTimeInMinutesToString:(int)minutes{
+    if (minutes < 1)
+    {
+        NSString *returnedString = [NSString stringWithFormat:@"%i s", minutes];
+        return returnedString;
+    }
+    else if (minutes < 60)
+    {
+        NSString *returnedString = [NSString stringWithFormat:@"%i m", minutes];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }else if (minutes > 60 && minutes < 120)
+    {
+        int hours = minutes / 60;
+        NSString *returnedString = [NSString stringWithFormat:@"%i h", hours];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }
+    else if (minutes > 60 && minutes < (60 * 24))
+    {
+        int hours = minutes / 60;
+        NSString *returnedString = [NSString stringWithFormat:@"%i h", hours];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }
+    else if (minutes > (60 * 24) && minutes < (60 * 24 * 7))
+    {
+        int days = minutes / (60 * 24);
+        NSString *returnedString = [NSString stringWithFormat:@"%i day", days];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }else if (minutes > (60 * 24 * 7) && minutes < (60 * 24 * 14)){
+        int weeks = minutes / (60 * 24 * 7);
+        NSString *returnedString = [NSString stringWithFormat:@"%i week", weeks];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }
+    else if (minutes > (60 * 24 * 7))
+    {
+        int weeks = minutes / (60 * 24 * 7);
+        NSString *returnedString = [NSString stringWithFormat:@"%i week", weeks];
+        NSLog(@"%@ was returned",returnedString);
+        return returnedString;
+    }
+    else {
+        return nil;
+    }
+    
+    
+}
+
 
 
 
