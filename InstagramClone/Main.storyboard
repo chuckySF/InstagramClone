@@ -40,7 +40,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="1Gp-dC-X93" kind="show" identifier="homeToAddPhotoSegue" id="DW3-Cs-1o3"/>
+                                            <segue destination="1Gp-dC-X93" kind="presentation" identifier="homeToAddPhotoSegue" id="DW3-Cs-1o3"/>
                                         </connections>
                                     </button>
                                 </subviews>

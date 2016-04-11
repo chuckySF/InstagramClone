@@ -18,6 +18,7 @@
 #import "GridViewController.h"
 #import "CommentViewController.h"
 #import "ZoomImageViewController.h"
+#import "AddPhotoViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
@@ -276,6 +277,11 @@
     ZoomImageViewController *destVC = segue.destinationViewController;
     destVC.passedImage = self.zoomImage;
     
+  }else if ([segue.identifier isEqualToString:@"homeToAddPhotoSegue"]){
+    AddPhotoViewController *destVC = segue.destinationViewController;
+    Photo *passedPhoto = [self.photos objectAtIndex:0];
+    User *photoUSer = (User *)passedPhoto.user;
+    //destVC.user = passedUser;
   }
 }
 
