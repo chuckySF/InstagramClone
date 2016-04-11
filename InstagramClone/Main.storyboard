@@ -86,37 +86,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="503"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sKP-wz-QZm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="IID-W5-6gG"/>
-                                                        <constraint firstAttribute="height" constant="300" id="OCH-Te-qVX"/>
-                                                        <constraint firstAttribute="height" constant="300" id="dBB-CD-9c0"/>
-                                                        <constraint firstAttribute="width" constant="300" id="yQU-DL-Ucg"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="IID-W5-6gG"/>
-                                                            <exclude reference="OCH-Te-qVX"/>
-                                                            <exclude reference="dBB-CD-9c0"/>
-                                                            <exclude reference="yQU-DL-Ucg"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="IID-W5-6gG"/>
-                                                            <include reference="OCH-Te-qVX"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <exclude reference="IID-W5-6gG"/>
-                                                            <exclude reference="OCH-Te-qVX"/>
-                                                            <include reference="dBB-CD-9c0"/>
-                                                            <include reference="yQU-DL-Ucg"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4fO-Ce-Sfj">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
@@ -369,9 +338,45 @@
                                                         </mask>
                                                     </variation>
                                                     <connections>
-                                                        <action selector="onZoomButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="LcD-Ir-0AA"/>
+                                                        <action selector="onZoomButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="xkW-CA-9GR"/>
                                                     </connections>
                                                 </button>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sKP-wz-QZm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="IID-W5-6gG"/>
+                                                        <constraint firstAttribute="height" constant="300" id="OCH-Te-qVX"/>
+                                                        <constraint firstAttribute="height" constant="300" id="dBB-CD-9c0"/>
+                                                        <constraint firstAttribute="width" constant="300" id="yQU-DL-Ucg"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="IID-W5-6gG"/>
+                                                            <exclude reference="OCH-Te-qVX"/>
+                                                            <exclude reference="dBB-CD-9c0"/>
+                                                            <exclude reference="yQU-DL-Ucg"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="IID-W5-6gG"/>
+                                                            <include reference="OCH-Te-qVX"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="50" y="60" width="300" height="300"/>
+                                                        <mask key="constraints">
+                                                            <exclude reference="IID-W5-6gG"/>
+                                                            <exclude reference="OCH-Te-qVX"/>
+                                                            <include reference="dBB-CD-9c0"/>
+                                                            <include reference="yQU-DL-Ucg"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Aid-Tp-I4t" appends="YES" id="lP3-Sq-SeE"/>
+                                                    </connections>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sKP-wz-QZm" firstAttribute="centerY" secondItem="Dg7-TJ-vkh" secondAttribute="centerY" id="24J-4E-X02">
@@ -426,7 +431,6 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
-                                                    <exclude reference="sKP-wz-QZm"/>
                                                     <exclude reference="4fO-Ce-Sfj"/>
                                                     <exclude reference="c28-6t-uxy"/>
                                                     <exclude reference="KVP-JZ-Y5K"/>
@@ -435,6 +439,7 @@
                                                     <exclude reference="Fw8-KY-b92"/>
                                                     <exclude reference="295-FD-jOl"/>
                                                     <exclude reference="lfW-xg-qNr"/>
+                                                    <exclude reference="sKP-wz-QZm"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="UTe-0F-3VF"/>
@@ -476,8 +481,8 @@
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <include reference="sKP-wz-QZm"/>
                                                     <include reference="4fO-Ce-Sfj"/>
+                                                    <include reference="sKP-wz-QZm"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="Gai-dp-on9"/>
@@ -536,6 +541,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="datePosted" destination="HBh-1E-jYA" id="MCB-n4-kDC"/>
                                             <outlet property="likeCount" destination="c28-6t-uxy" id="o7Y-nm-Acl"/>
@@ -569,13 +575,13 @@
                                 <exclude reference="BVY-nX-Oew"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qbh-NS-lbz"/>
                                 <exclude reference="DuB-Xu-eOa"/>
                                 <exclude reference="YCD-qU-E8a"/>
                                 <exclude reference="gwz-5C-Cch"/>
                                 <exclude reference="55f-ZN-09X"/>
                                 <exclude reference="PuE-2k-hxX"/>
                                 <exclude reference="UkP-zh-7RR"/>
-                                <exclude reference="qbh-NS-lbz"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -584,13 +590,13 @@
                                 <include reference="BVY-nX-Oew"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qbh-NS-lbz"/>
                                 <include reference="DuB-Xu-eOa"/>
                                 <include reference="YCD-qU-E8a"/>
                                 <include reference="gwz-5C-Cch"/>
                                 <include reference="55f-ZN-09X"/>
                                 <include reference="PuE-2k-hxX"/>
                                 <include reference="UkP-zh-7RR"/>
-                                <include reference="qbh-NS-lbz"/>
                             </mask>
                         </variation>
                     </view>
@@ -617,6 +623,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Aid-Tp-I4t">
+                    <connections>
+                        <action selector="didTapImage:" destination="BYZ-38-t0r" id="yE4-Ly-GRQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="898.5" y="798"/>
         </scene>
@@ -647,6 +658,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Eh7-wp-DaJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0UA-DL-ltz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjP-BR-zWk">
@@ -698,10 +710,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pZ-cU-98a">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-1u-nR8">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-1u-nR8">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="t2P-1u-nR8" secondAttribute="trailing" id="FjC-fb-LjK"/>
                                     <constraint firstAttribute="bottom" secondItem="t2P-1u-nR8" secondAttribute="bottom" id="QC5-aW-n8C"/>
@@ -764,14 +777,14 @@
                                 <exclude reference="7pZ-cU-98a"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Bdh-pt-e2D"/>
+                                <exclude reference="q3g-Yy-ebR"/>
+                                <exclude reference="y76-6k-eg3"/>
                                 <exclude reference="D86-lI-Zu0"/>
                                 <exclude reference="EU4-aK-Fdr"/>
                                 <exclude reference="yE4-y0-Mvt"/>
                                 <exclude reference="7WC-yr-7Cy"/>
                                 <exclude reference="XJ3-fi-9zX"/>
-                                <exclude reference="q3g-Yy-ebR"/>
-                                <exclude reference="y76-6k-eg3"/>
-                                <exclude reference="Bdh-pt-e2D"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -781,14 +794,14 @@
                                 <include reference="7pZ-cU-98a"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Bdh-pt-e2D"/>
+                                <include reference="q3g-Yy-ebR"/>
+                                <include reference="y76-6k-eg3"/>
                                 <include reference="D86-lI-Zu0"/>
                                 <include reference="EU4-aK-Fdr"/>
                                 <include reference="yE4-y0-Mvt"/>
                                 <include reference="7WC-yr-7Cy"/>
                                 <include reference="XJ3-fi-9zX"/>
-                                <include reference="q3g-Yy-ebR"/>
-                                <include reference="y76-6k-eg3"/>
-                                <include reference="Bdh-pt-e2D"/>
                             </mask>
                         </variation>
                     </view>

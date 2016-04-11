@@ -23,7 +23,12 @@
 
 - (IBAction)onZoomButtonPressed:(UIButton *)sender {
   [self.delegate didTapZoom:sender];
+
 }
+
+
+
+
 
 
 @end
