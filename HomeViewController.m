@@ -111,19 +111,25 @@
 -(void)pullPhotosFromCoreData {
   
   self.photos = [NSMutableArray new];
-  NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Photo"];
   
+  //fetch request
+  NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"Photo"];
   NSError *error;
-  self.photos = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
+  
+  NSMutableArray *coreDataArray = [[self.moc executeFetchRequest:request error:&error]mutableCopy];
   
   if (error == nil) {
     NSLog(@"pull was successful");
+    
+    //sorts the array
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"photoTimestamp" ascending:YES];
+    self.photos = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
+    
   } else {
     NSLog(@"Error: %@", error);
   }
-  
-  
 }
+
 
 
 #pragma Table View
