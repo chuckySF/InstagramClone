@@ -134,7 +134,7 @@
     NSLog(@"pull was successful");
     
     //sorts the array
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"photoTimestamp" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"photoTimestamp" ascending:NO];
     self.photos = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
     [self.tableView reloadData];
     
@@ -167,6 +167,19 @@
   cell.photoImageView.image = [UIImage imageWithData:imageData];
   cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
   cell.pictureDescription.text = tempPhoto.photoDescription;
+  
+  
+  //Comment button Title logic
+  
+  if (tempPhoto.comments.count == 0)
+  {
+    [cell.commentButton setTitle:@"Comment" forState:UIControlStateNormal];
+  }
+  else
+  {
+  NSString *buttontitle = [NSString stringWithFormat:@"Comments %lu", tempPhoto.comments.count];
+  [cell.commentButton setTitle:buttontitle forState:UIControlStateNormal];
+  }
   
  //date code
   float timeSincePosting = [tempPhoto.photoTimestamp timeIntervalSinceNow] * -1;
