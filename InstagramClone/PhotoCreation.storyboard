@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -41,72 +41,103 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QoF-fC-1bX">
-                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Pc1-nK-6yp"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Library"/>
-                                    <segment title="Camera"/>
-                                </segments>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Pc1-nK-6yp"/>
-                                    </mask>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L0P-Nq-D0l">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="177" width="240" height="245"/>
                                 </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Pc1-nK-6yp"/>
-                                    </mask>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rff-Gv-h9U">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="133" y="87" width="48" height="30"/>
                                 </variation>
-                            </segmentedControl>
+                                <connections>
+                                    <action selector="dismissCameraActions:" destination="B2f-VF-HTZ" eventType="touchUpInside" id="jn7-2T-Me0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQC-5k-xqQ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="240" y="87" width="32" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="qK9-bP-QLa" kind="show" id="fc3-Xo-Xu5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coV-SE-uEm">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="159" y="562" width="80" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onCameraButtonPressed:" destination="B2f-VF-HTZ" eventType="touchUpInside" id="Kxa-wy-ZsV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKP-Jn-rCx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Library"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="289" y="562" width="91" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onLibraryPressedButton:" destination="B2f-VF-HTZ" eventType="touchUpInside" id="UnP-QU-4kq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whz-Hu-NNO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Video"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="562" width="82" height="30"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z3w-0l-dAg" firstAttribute="top" secondItem="QoF-fC-1bX" secondAttribute="bottom" id="3G3-gk-MU5"/>
-                            <constraint firstItem="QoF-fC-1bX" firstAttribute="leading" secondItem="95V-ph-c8H" secondAttribute="leadingMargin" constant="-20" id="6aK-HF-Ygc"/>
                             <constraint firstItem="UNf-wc-eI0" firstAttribute="centerX" secondItem="95V-ph-c8H" secondAttribute="centerX" id="brh-D7-FdZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QoF-fC-1bX" secondAttribute="trailing" constant="-20" id="g3N-fI-ivh"/>
                             <constraint firstItem="UNf-wc-eI0" firstAttribute="top" secondItem="95V-ph-c8H" secondAttribute="topMargin" constant="29" id="vdz-Az-4Qt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="UNf-wc-eI0"/>
-                                <exclude reference="QoF-fC-1bX"/>
+                                <exclude reference="L0P-Nq-D0l"/>
+                                <exclude reference="Rff-Gv-h9U"/>
+                                <exclude reference="BQC-5k-xqQ"/>
+                                <exclude reference="coV-SE-uEm"/>
+                                <exclude reference="XKP-Jn-rCx"/>
+                                <exclude reference="Whz-Hu-NNO"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3G3-gk-MU5"/>
                                 <exclude reference="brh-D7-FdZ"/>
                                 <exclude reference="vdz-Az-4Qt"/>
-                                <exclude reference="6aK-HF-Ygc"/>
-                                <exclude reference="g3N-fI-ivh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="UNf-wc-eI0"/>
-                                <include reference="QoF-fC-1bX"/>
+                                <include reference="L0P-Nq-D0l"/>
+                                <include reference="Rff-Gv-h9U"/>
+                                <include reference="BQC-5k-xqQ"/>
+                                <include reference="coV-SE-uEm"/>
+                                <include reference="XKP-Jn-rCx"/>
+                                <include reference="Whz-Hu-NNO"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3G3-gk-MU5"/>
                                 <include reference="brh-D7-FdZ"/>
                                 <include reference="vdz-Az-4Qt"/>
-                                <include reference="6aK-HF-Ygc"/>
-                                <include reference="g3N-fI-ivh"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="2Zn-bu-b1P"/>
-                    <navigationItem key="navigationItem" title="Add Photo" id="Nbh-SW-SCE">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="ThW-HK-Ihd">
-                            <connections>
-                                <segue destination="qK9-bP-QLa" kind="show" identifier="finalizeSegue" id="LZy-BA-HUs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Photo" id="Nbh-SW-SCE"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="AbstractSizeClassScreen[widthClass=compact]"/>
+                    <connections>
+                        <outlet property="imageView" destination="L0P-Nq-D0l" id="6qR-ch-qpf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJR-W8-7JQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,7 +212,18 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="i2l-Sf-Xbn" kind="unwind" unwindAction="prepareForUnwind:" id="U6i-j9-Q8S"/>
+                                    <action selector="onShareButtonPressed:" destination="qK9-bP-QLa" eventType="touchUpInside" id="sWR-LG-1Jx"/>
+                                    <segue destination="i2l-Sf-Xbn" kind="unwind" unwindAction="prepareForUnwind:" id="1Qb-8g-lY6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5G-yp-lK7">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="go Back"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="172" y="255" width="56" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelSharePhoto:" destination="qK9-bP-QLa" eventType="touchUpInside" id="sNV-5f-OQz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,6 +243,7 @@
                                 <exclude reference="FJc-ZU-HeX"/>
                                 <exclude reference="Py0-eW-PKO"/>
                                 <exclude reference="2NC-7B-5sD"/>
+                                <exclude reference="a5G-yp-lK7"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="tq2-nv-ya6"/>
@@ -218,6 +261,7 @@
                                 <include reference="FJc-ZU-HeX"/>
                                 <include reference="Py0-eW-PKO"/>
                                 <include reference="2NC-7B-5sD"/>
+                                <include reference="a5G-yp-lK7"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="tq2-nv-ya6"/>
@@ -232,6 +276,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Finalize" id="tuQ-dg-2HI"/>
+                    <connections>
+                        <outlet property="imageView" destination="FJc-ZU-HeX" id="4gM-kf-phn"/>
+                        <outlet property="textView" destination="Py0-eW-PKO" id="eeo-Jo-dsm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKk-w5-pfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i2l-Sf-Xbn" userLabel="Exit" sceneMemberID="exit"/>
