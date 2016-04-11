@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *pictureDescription;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *datePosted;
+@property (weak, nonatomic ) UITapGestureRecognizer *imageTapped;
+
 @property (nonatomic, assign) id <PhotoTableViewCellDelegate> delegate;
 
 @end

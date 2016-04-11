@@ -18,6 +18,7 @@
 #import "GridViewController.h"
 #import "CommentViewController.h"
 #import "ZoomImageViewController.h"
+#import "AddPhotoViewController.h"
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
@@ -42,6 +43,8 @@
 }
 
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
@@ -61,10 +64,11 @@
 
 }
 
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-  
-  
+-(void)viewWillDisappear:(BOOL)animated{
+  NSLog(@"VIEW WILL DISAPPEAR");
 }
+
+
 
 #pragma CoreData
 -(void)createDefaultPhotosAndSaveToCoreData{
@@ -132,7 +136,7 @@
 
 
 
-#pragma Table View
+#pragma mark Table View
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   return self.photos.count;
 }
@@ -161,7 +165,6 @@
   int minsInt = timeSincePostingInMinutes / 1;
   cell.datePosted.text = [self convertTimeInMinutesToString:minsInt];
   
-  NSLog(@"%i",minsInt);
   
   
   
@@ -176,9 +179,113 @@
   //delegate stuff
   cell.delegate = self;
   
+  //selction turned off
+  //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+  
   return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+  NSString *delete = [NSString stringWithFormat:@"Delete Picture"];
+  return delete;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+  return YES;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+  
+  Photo *deletedPhoto = [self.photos objectAtIndex:indexPath.row];
+  
+  //deletes photo
+  [self.photos removeObject:deletedPhoto];
+  [self.moc deleteObject:deletedPhoto];
+  
+  [self.tableView reloadData];
+  
+  //Saves moc
+  NSError *error;
+  [self.moc save:&error];
+}
+
+
+#pragma Segmented Control
+- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
+  switch (self.segmentedControl.selectedSegmentIndex) {
+    case 0:
+    break;
+    case 1:
+      [self performSegueWithIdentifier:@"gridSegue" sender: nil];
+
+  
+      
+    default:
+      break;
+  }
+  
+}
+
+#pragma User Interaction
+-(void)didTapZoom:(UIButton *)button{
+  
+  //gets the appropriate cell
+  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
+  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+  Photo *zommedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  
+  //gets the image for that cell and saves it for public access so we have it in prepare for segue
+  NSData *imageData = zommedPhoto.photoImage;
+  self.zoomImage = [UIImage imageWithData:imageData];
+  
+  [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
+}
+
+- (IBAction)didTapImage:(UITapGestureRecognizer *)sender {
+  NSLog(@"photo tap recognized");
+  CGPoint hitPoint = [sender.view convertPoint:CGPointZero toView:self.tableView];
+  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+  Photo *tappedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  
+  NSLog(@"%@",tappedPhoto.photoDescription);
+  
+}
+
+-(void)likePicture:(Photo *)picture{
+  
+}
+
+
+#pragma Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  if ([segue.identifier isEqualToString:@"gridSegue"]){
+    
+    GridViewController *destVC =  segue.destinationViewController;
+    destVC.photos = self.photos;
+    
+  }
+  else if ([segue.identifier isEqualToString:@"commentSegue"]){
+    
+    CommentViewController *destVC = segue.destinationViewController;
+    Photo *passedPhoto = [self.photos objectAtIndex:0];
+    User *passedUser = (User *)passedPhoto.user;
+    
+    destVC.photo = passedPhoto;
+    destVC.user = passedUser;
+  }
+  else if ([segue.identifier isEqualToString:@"zoomSegue"]){
+    
+    ZoomImageViewController *destVC = segue.destinationViewController;
+    destVC.passedImage = self.zoomImage;
+    
+  }else if ([segue.identifier isEqualToString:@"homeToAddPhotoSegue"]){
+    AddPhotoViewController *destVC = segue.destinationViewController;
+    Photo *passedPhoto = [self.photos objectAtIndex:0];
+    User *photoUSer = (User *)passedPhoto.user;
+    //destVC.user = passedUser;
+  }
+}
+
+#pragma Algorithms 
 -(NSString *)convertTimeInMinutesToString:(int)minutes{
   if (minutes < 1)
   {
@@ -230,67 +337,6 @@
   
   
 }
-
-
-#pragma Segmented Control
-- (IBAction)onSegmentedControlPressed:(UISegmentedControl *)sender {
-  switch (self.segmentedControl.selectedSegmentIndex) {
-    case 0:
-    break;
-    case 1:
-      [self performSegueWithIdentifier:@"gridSegue" sender: nil];
-
-  
-      
-    default:
-      break;
-  }
-  
-}
-
-#pragma User Interaction
--(void)didTapZoom:(UIButton *)button{
-  
-  //gets the appropriate cell
-  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
-  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
-  Photo *zommedPhoto = [self.photos objectAtIndex:hitIndex.row];
-  
-  //gets the image for that cell and saves it for public access so we have it in prepare for segue
-  NSData *imageData = zommedPhoto.photoImage;
-  self.zoomImage = [UIImage imageWithData:imageData];
-  
-  [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
-  
-  
-}
-
-#pragma Segues
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-  if ([segue.identifier isEqualToString:@"gridSegue"]){
-    
-    GridViewController *destVC =  segue.destinationViewController;
-    destVC.photos = self.photos;
-    
-  }
-  else if ([segue.identifier isEqualToString:@"commentSegue"]){
-    
-    CommentViewController *destVC = segue.destinationViewController;
-    Photo *passedPhoto = [self.photos objectAtIndex:0];
-    User *passedUser = (User *)passedPhoto.user;
-    
-    destVC.photo = passedPhoto;
-    destVC.user = passedUser;
-  }
-  else if ([segue.identifier isEqualToString:@"zoomSegue"]){
-    
-    ZoomImageViewController *destVC = segue.destinationViewController;
-    destVC.passedImage = self.zoomImage;
-    
-  }
-}
-
-
 
 
 @end
