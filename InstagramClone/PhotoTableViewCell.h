@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol PhotoTableViewCellDelegate
 -(void)didTapZoom:(UIButton *)button;
+-(void)didWanttoSeeComments:(UIButton *)button;
 
 @end
 

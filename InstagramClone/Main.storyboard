@@ -138,7 +138,7 @@
                                                                 <rect key="frame" x="75" y="0.0" width="75" height="30"/>
                                                             </variation>
                                                             <connections>
-                                                                <segue destination="DWj-Pc-RxX" kind="show" identifier="commentSegue" id="ghe-wo-MCL"/>
+                                                                <action selector="onCommentButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="Hbu-Wb-9lR"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -364,8 +364,7 @@
                                                             <include reference="OCH-Te-qVX"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="50" y="60" width="300" height="300"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <exclude reference="IID-W5-6gG"/>
                                                             <exclude reference="OCH-Te-qVX"/>
@@ -373,9 +372,6 @@
                                                             <include reference="yQU-DL-Ucg"/>
                                                         </mask>
                                                     </variation>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="Aid-Tp-I4t" appends="YES" id="lP3-Sq-SeE"/>
-                                                    </connections>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -620,16 +616,12 @@
                         <outlet property="tableView" destination="BVY-nX-Oew" id="sOc-8X-frx"/>
                         <segue destination="Bba-om-582" kind="show" identifier="gridSegue" animates="NO" id="BuJ-Jl-eVx"/>
                         <segue destination="HGj-OY-4sF" kind="presentation" identifier="zoomSegue" id="ZRy-Ll-UJ3"/>
+                        <segue destination="DWj-Pc-RxX" kind="show" identifier="commentSegue" id="ikp-5Z-mkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Aid-Tp-I4t">
-                    <connections>
-                        <action selector="didTapImage:" destination="BYZ-38-t0r" id="yE4-Ly-GRQ"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="898.5" y="798"/>
+            <point key="canvasLocation" x="1035" y="852"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mqe-L9-kPo">
@@ -668,7 +660,7 @@
                                     <constraint firstAttribute="height" constant="102" id="sZo-fr-9fe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">

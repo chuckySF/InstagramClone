@@ -26,6 +26,9 @@
 
 }
 
+- (IBAction)onCommentButtonPressed:(UIButton *)sender {
+  [self.delegate didWanttoSeeComments:sender];
+}
 
 
 

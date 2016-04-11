@@ -21,12 +21,15 @@
 #import "AddPhotoViewController.h"
 
 
+
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property NSMutableArray *photos;
 @property NSManagedObjectContext *moc;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property UIImage *zoomImage;
+@property Photo *clickedPhoto;
+@property User *currentUser;
 
 
 @end
@@ -38,6 +41,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
   self.segmentedControl.selectedSegmentIndex = 0;
+  [self.tableView reloadData];
   
   
 }
@@ -55,6 +59,10 @@
     if (self.photos.count == 0) {
       [self createDefaultPhotosAndSaveToCoreData];
     }
+  
+  Photo *tempPhoto = [self.photos objectAtIndex:0];
+  
+  self.currentUser = (User *)tempPhoto.user;
   
 }
 
@@ -128,6 +136,7 @@
     //sorts the array
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"photoTimestamp" ascending:YES];
     self.photos = [[coreDataArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]mutableCopy];
+    [self.tableView reloadData];
     
   } else {
     NSLog(@"Error: %@", error);
@@ -240,19 +249,24 @@
   [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
 }
 
-- (IBAction)didTapImage:(UITapGestureRecognizer *)sender {
-  NSLog(@"photo tap recognized");
-  CGPoint hitPoint = [sender.view convertPoint:CGPointZero toView:self.tableView];
+
+-(void)didWanttoSeeComments:(UIButton *)button{
+  
+  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
   NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
-  Photo *tappedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  Photo *commentPhoto = [self.photos objectAtIndex:hitIndex.row];
   
-  NSLog(@"%@",tappedPhoto.photoDescription);
+  self.clickedPhoto = commentPhoto;
   
+  [self performSegueWithIdentifier:@"commentSegue" sender:nil];
 }
 
--(void)likePicture:(Photo *)picture{
-  
-}
+
+
+
+//-(void)likePicture:(Photo *)picture{
+//  
+//}
 
 
 #pragma Segues
@@ -266,8 +280,8 @@
   else if ([segue.identifier isEqualToString:@"commentSegue"]){
     
     CommentViewController *destVC = segue.destinationViewController;
-    Photo *passedPhoto = [self.photos objectAtIndex:0];
-    User *passedUser = (User *)passedPhoto.user;
+    Photo *passedPhoto = self.clickedPhoto;
+    User *passedUser = (User *)passedPhoto.user; //!!!!!!!!! needs to change after one user
     
     destVC.photo = passedPhoto;
     destVC.user = passedUser;
@@ -279,10 +293,14 @@
     
   }else if ([segue.identifier isEqualToString:@"homeToAddPhotoSegue"]){
     AddPhotoViewController *destVC = segue.destinationViewController;
-    Photo *passedPhoto = [self.photos objectAtIndex:0];
-    User *photoUSer = (User *)passedPhoto.user;
-    //destVC.user = passedUser;
+    
+    destVC.user = self.currentUser;
   }
+}
+
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+  
+  
 }
 
 #pragma Algorithms 
