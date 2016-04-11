@@ -25,5 +25,6 @@
 @property (weak, nonatomic ) UITapGestureRecognizer *imageTapped;
 
 @property (nonatomic, assign) id <PhotoTableViewCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
