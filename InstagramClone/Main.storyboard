@@ -283,7 +283,7 @@
                                                         </mask>
                                                     </variation>
                                                     <connections>
-                                                        <action selector="onCommentButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="EWe-9C-4Gw"/>
+                                                        <action selector="onCommentButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="U81-mO-Aaj"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw8-KY-b92">
@@ -292,7 +292,7 @@
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="DWj-Pc-RxX" kind="show" id="kjf-ID-sE2"/>
+                                                        <action selector="onCommentButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="zhb-Lg-E7l"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295-FD-jOl">
@@ -913,7 +913,4 @@
         <image name="toggle-list" width="128" height="128"/>
         <image name="zoom" width="128" height="128"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="ikp-5Z-mkf"/>
-    </inferredMetricsTieBreakers>
 </document>
