@@ -10,6 +10,7 @@
 @protocol PhotoTableViewCellDelegate
 -(void)didTapZoom:(UIButton *)button;
 -(void)didWanttoSeeComments:(UIButton *)button;
+-(void)photoLiked:(UIButton *)button;
 
 @end
 
@@ -26,5 +27,6 @@
 
 @property (nonatomic, assign) id <PhotoTableViewCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
 
 @end

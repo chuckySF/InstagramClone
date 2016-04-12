@@ -284,6 +284,9 @@
                                                             <include reference="5zX-1c-ayW"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="onLikeButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="lzh-5N-dDS"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw8-KY-b92">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -364,7 +367,8 @@
                                                             <include reference="OCH-Te-qVX"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="-150" y="62" width="300" height="300"/>
                                                         <mask key="constraints">
                                                             <exclude reference="IID-W5-6gG"/>
                                                             <exclude reference="OCH-Te-qVX"/>
@@ -540,6 +544,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="datePosted" destination="HBh-1E-jYA" id="MCB-n4-kDC"/>
+                                            <outlet property="heartButton" destination="UZD-aC-V9J" id="tvg-nu-GXz"/>
                                             <outlet property="likeCount" destination="c28-6t-uxy" id="o7Y-nm-Acl"/>
                                             <outlet property="photoImageView" destination="sKP-wz-QZm" id="g1B-XN-HPV"/>
                                             <outlet property="pictureDescription" destination="KVP-JZ-Y5K" id="1p9-wR-32d"/>

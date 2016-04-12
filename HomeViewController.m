@@ -19,6 +19,7 @@
 #import "CommentViewController.h"
 #import "ZoomImageViewController.h"
 #import "AddPhotoViewController.h"
+#import "Like.h"
 
 
 
@@ -75,7 +76,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-  NSLog(@"VIEW WILL DISAPPEAR");
+  //NSLog(@"VIEW WILL DISAPPEAR");
 }
 
 
@@ -203,11 +204,20 @@
   //delegate stuff
   cell.delegate = self;
   
-  //selction turned off
-  //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+  //Decides which heart appears
+  if ([self currentUserHasLikedPicture:tempPhoto]) {
+    [cell.heartButton setImage:[UIImage imageNamed:@"Gaming-Hearts-icon-1"] forState:UIControlStateNormal];
+    NSLog(@"this image should be the full heart");
+
+  }else {
+    [cell.heartButton setImage:[UIImage imageNamed:@"emptyHeart"] forState:UIControlStateNormal];
+    NSLog(@"this image should be empty heart");
+  }
   
   return cell;
 }
+
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
   NSString *delete = [NSString stringWithFormat:@"Delete Picture"];
@@ -277,11 +287,66 @@
 }
 
 
+-(BOOL)currentUserHasLikedPicture:(Photo *)photo{
+  
+  NSSet *likesSet = photo.likes;
+  
+  for (Like *like in likesSet)
+  {
+    if (like.user == self.currentUser)
+    {
+      return YES;
+    }
+  }
+  
+  return NO;
+}
 
 
-//-(void)likePicture:(Photo *)picture{
-//  
-//}
+
+-(void)photoLiked:(UIButton *)button{
+  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
+  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+  Photo *likedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  
+  if ([self currentUserHasLikedPicture:likedPhoto]){
+  //REMOVE THE LIKE
+    
+    //Run through the likes and remove the matching like
+    
+      NSSet *likesSet = likedPhoto.likes;
+      for (Like *like in likesSet)
+      {
+        //finds the like and removes it
+        if (like.user == self.currentUser)
+        {
+        [likedPhoto removeLikesObject:like];
+        }
+      }
+  }
+  else
+  //CREATE A NEW LIKE AND SETS UP THE RELATIONSHIP
+  {
+  
+    //creates new like
+    Like *newLike = [NSEntityDescription insertNewObjectForEntityForName:@"Like" inManagedObjectContext:self.moc];
+  
+    //establishes the relationship
+    [likedPhoto addLikesObject:newLike];
+    [self.currentUser addLikesObject:newLike];
+  
+  }
+  
+  //saves either way
+  NSError *error;
+  [self.moc save:&error];
+  
+  //reloads the tableview after it is done
+  [self.tableView reloadData];
+  
+}
+
+
 
 
 #pragma Segues
@@ -323,45 +388,45 @@
   if (minutes < 1)
   {
     NSString *returnedString = @"Less than one minute ago";
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes < 60)
   {
     NSString *returnedString = [NSString stringWithFormat:@"%i minutes ago", minutes];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }else if (minutes > 60 && minutes < 120)
   {
     int hours = minutes / 60;
     NSString *returnedString = [NSString stringWithFormat:@"%i hour ago", hours];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > 60 && minutes < (60 * 24))
   {
     int hours = minutes / 60;
     NSString *returnedString = [NSString stringWithFormat:@"%i hours ago", hours];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > (60 * 24) && minutes < (60 * 24 * 7))
   {
     int days = minutes / (60 * 24);
     NSString *returnedString = [NSString stringWithFormat:@"%i days ago", days];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }else if (minutes > (60 * 24 * 7) && minutes < (60 * 24 * 14)){
     int weeks = minutes / (60 * 24 * 7);
     NSString *returnedString = [NSString stringWithFormat:@"%i week ago", weeks];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > (60 * 24 * 7))
   {
     int weeks = minutes / (60 * 24 * 7);
     NSString *returnedString = [NSString stringWithFormat:@"%i weeks ago", weeks];
-    NSLog(@"%@ was returned",returnedString);
+    //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else {
