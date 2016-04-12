@@ -19,13 +19,9 @@
 @property NSMutableArray *photosArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-
-<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
-=======
->>>>>>> CameraVC2
 @end
 
 
