@@ -68,7 +68,7 @@
   }
   
   //sets up current user
-  Photo *tempPhoto = [self.photos objectAtIndex:0];
+  //Photo *tempPhoto = [self.photos objectAtIndex:0];
   
   //////setup formatting
   UIColor *instaBlue = [UIColor colorWithRed:(18/255.0) green:(86/255.0) blue:(136/255.0) alpha:1];
@@ -402,6 +402,7 @@
     
     GridViewController *destVC =  segue.destinationViewController;
     destVC.photos = self.photos;
+    destVC.user = self.currentUser;
     
   }
   else if ([segue.identifier isEqualToString:@"commentSegue"]){

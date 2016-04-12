@@ -11,6 +11,7 @@
 #import "GridCollectionViewCell.h"
 #import "GridCollectionViewFlowLayout.h"
 #import "Photo.h"
+#import "AddPhotoViewController.h"
 
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -88,6 +89,24 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
+}
+
+#pragma Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  
+  if ([segue.identifier isEqualToString:@"gridToAddPhotoSegue"])
+    
+  {
+  
+  UINavigationController *destVC = segue.destinationViewController;
+  
+  AddPhotoViewController *actualDestVC =  destVC.viewControllers[0];
+  
+  actualDestVC.user = self.user;
+  NSLog(@"%@", self.user.userName);
+    
+  }
+
 }
 
 

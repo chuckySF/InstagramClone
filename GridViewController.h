@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface GridViewController : UIViewController
 @property NSMutableArray *photos;
+@property User *user;
 
 @end

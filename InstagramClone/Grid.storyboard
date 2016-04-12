@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="151" height="145"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-VZ-dnB">
@@ -174,15 +174,15 @@
                                     <mask key="constraints">
                                         <exclude reference="dPY-7l-eIx"/>
                                         <exclude reference="ftK-HV-sJz"/>
-                                        <exclude reference="IPU-ay-XPi"/>
-                                        <exclude reference="LZv-YF-F7U"/>
-                                        <exclude reference="oIe-ZQ-IQw"/>
-                                        <exclude reference="Ad1-Qz-eu4"/>
-                                        <exclude reference="Jdc-7M-DXN"/>
-                                        <exclude reference="laV-An-ks7"/>
                                         <exclude reference="O9Y-2c-N2I"/>
                                         <exclude reference="Vz2-qA-cVv"/>
                                         <exclude reference="urz-0W-4KV"/>
+                                        <exclude reference="Ad1-Qz-eu4"/>
+                                        <exclude reference="Jdc-7M-DXN"/>
+                                        <exclude reference="laV-An-ks7"/>
+                                        <exclude reference="IPU-ay-XPi"/>
+                                        <exclude reference="LZv-YF-F7U"/>
+                                        <exclude reference="oIe-ZQ-IQw"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -194,15 +194,15 @@
                                     <mask key="constraints">
                                         <exclude reference="dPY-7l-eIx"/>
                                         <include reference="ftK-HV-sJz"/>
-                                        <include reference="IPU-ay-XPi"/>
-                                        <include reference="LZv-YF-F7U"/>
-                                        <include reference="oIe-ZQ-IQw"/>
-                                        <include reference="Ad1-Qz-eu4"/>
-                                        <include reference="Jdc-7M-DXN"/>
-                                        <include reference="laV-An-ks7"/>
                                         <include reference="O9Y-2c-N2I"/>
                                         <include reference="Vz2-qA-cVv"/>
                                         <include reference="urz-0W-4KV"/>
+                                        <include reference="Ad1-Qz-eu4"/>
+                                        <include reference="Jdc-7M-DXN"/>
+                                        <include reference="laV-An-ks7"/>
+                                        <include reference="IPU-ay-XPi"/>
+                                        <include reference="LZv-YF-F7U"/>
+                                        <include reference="oIe-ZQ-IQw"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -225,13 +225,13 @@
                                 <exclude reference="f3b-gF-wWV"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0Wt-HL-jkg"/>
+                                <exclude reference="2kV-pX-q5e"/>
                                 <exclude reference="coN-IG-9Mo"/>
                                 <exclude reference="gIX-Qo-obr"/>
                                 <exclude reference="z33-gD-Z5Q"/>
                                 <exclude reference="P58-3g-5QZ"/>
                                 <exclude reference="gZ5-6U-cDB"/>
-                                <exclude reference="0Wt-HL-jkg"/>
-                                <exclude reference="2kV-pX-q5e"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -240,27 +240,27 @@
                                 <include reference="f3b-gF-wWV"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0Wt-HL-jkg"/>
+                                <include reference="2kV-pX-q5e"/>
                                 <include reference="coN-IG-9Mo"/>
                                 <include reference="gIX-Qo-obr"/>
                                 <include reference="z33-gD-Z5Q"/>
                                 <include reference="P58-3g-5QZ"/>
                                 <include reference="gZ5-6U-cDB"/>
-                                <include reference="0Wt-HL-jkg"/>
-                                <include reference="2kV-pX-q5e"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="WeZ-8O-iby">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="dDh-zC-6Eq">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WMc-LO-XXe">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="20" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="toggle-grid"/>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="1qU-ic-wGE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AcS-ix-SGG">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="334" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="toggle-list"/>
                                 <connections>
