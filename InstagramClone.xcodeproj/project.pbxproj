@@ -31,6 +31,9 @@
 		D80F98091CB7371A00072623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80F98081CB7371A00072623 /* Main.storyboard */; };
 		D80F980C1CB7399C00072623 /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F980B1CB7399C00072623 /* AddPhotoViewController.m */; };
 		D85D1B261CB98B79000D9E31 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D85D1B251CB98B79000D9E31 /* PhotoTableViewCell.m */; };
+		D88E87AC1CBDB70900AB7010 /* billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D88E87A91CBDB70900AB7010 /* billabong.ttf */; };
+		D88E87AD1CBDB70900AB7010 /* Gotham Narrow Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = D88E87AA1CBDB70900AB7010 /* Gotham Narrow Book.otf */; };
+		D88E87AE1CBDB70900AB7010 /* GOTHAM-MEDIUM.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D88E87AB1CBDB70900AB7010 /* GOTHAM-MEDIUM.TTF */; };
 		D8BE28AF1CB9ACE9002C7500 /* GridCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE28AC1CB9ACE9002C7500 /* GridCollectionViewCell.m */; };
 		D8BE28B01CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE28AE1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m */; };
 		D8F6C24C1CBB13F7006ABEA6 /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F6C24B1CBB13F7006ABEA6 /* ZoomImageViewController.m */; };
@@ -79,6 +82,9 @@
 		D80F980B1CB7399C00072623 /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddPhotoViewController.m; path = ../AddPhotoViewController.m; sourceTree = "<group>"; };
 		D85D1B241CB98B79000D9E31 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
 		D85D1B251CB98B79000D9E31 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
+		D88E87A91CBDB70900AB7010 /* billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = billabong.ttf; sourceTree = "<group>"; };
+		D88E87AA1CBDB70900AB7010 /* Gotham Narrow Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Narrow Book.otf"; sourceTree = "<group>"; };
+		D88E87AB1CBDB70900AB7010 /* GOTHAM-MEDIUM.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-MEDIUM.TTF"; sourceTree = "<group>"; };
 		D8BE28AB1CB9ACE9002C7500 /* GridCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridCollectionViewCell.h; path = ../GridCollectionViewCell.h; sourceTree = "<group>"; };
 		D8BE28AC1CB9ACE9002C7500 /* GridCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCollectionViewCell.m; path = ../GridCollectionViewCell.m; sourceTree = "<group>"; };
 		D8BE28AD1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridCollectionViewFlowLayout.h; path = ../GridCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 		D80F97BF1CB71D9B00072623 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				D88E87A91CBDB70900AB7010 /* billabong.ttf */,
+				D88E87AA1CBDB70900AB7010 /* Gotham Narrow Book.otf */,
+				D88E87AB1CBDB70900AB7010 /* GOTHAM-MEDIUM.TTF */,
 				D80F98051CB7237A00072623 /* Controller */,
 				D80F97F21CB7222E00072623 /* Model */,
 				D80F97C31CB71D9B00072623 /* AppDelegate.h */,
@@ -250,9 +259,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2342425C1CB8A11100C82160 /* Grid.storyboard in Resources */,
+				D88E87AD1CBDB70900AB7010 /* Gotham Narrow Book.otf in Resources */,
+				D88E87AC1CBDB70900AB7010 /* billabong.ttf in Resources */,
 				2342425E1CB8A15200C82160 /* PhotoCreation.storyboard in Resources */,
 				D80F97D31CB71D9B00072623 /* LaunchScreen.storyboard in Resources */,
 				D80F97D01CB71D9B00072623 /* Assets.xcassets in Resources */,
+				D88E87AE1CBDB70900AB7010 /* GOTHAM-MEDIUM.TTF in Resources */,
 				D80F98091CB7371A00072623 /* Main.storyboard in Resources */,
 				2342425A1CB8A0E000C82160 /* Comment.storyboard in Resources */,
 			);
