@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentCellTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageCell;
-@property (weak, nonatomic) IBOutlet UILabel *commentLabelCell;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabelCell;
+@property (weak, nonatomic) IBOutlet UILabel *commentLabelCell;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabelCell;
 
 
+
 @end
+
+
+
+
+
+

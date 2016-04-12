@@ -165,23 +165,29 @@
 
 
 #pragma textfield
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
-    [scrollView setContentOffset:scrollPoint animated: YES];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.3];
+    [UIView setAnimationBeginsFromCurrentState:TRUE];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y -258., self.view.frame.size.width, self.view.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+    
 }
+
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
- 
-    [scrollView setContentOffset:CGPointZero animated: YES];
-}
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:.3];
+    [UIView setAnimationBeginsFromCurrentState:TRUE];
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y +258., self.view.frame.size.width, self.view.frame.size.height);
+    
+    [UIView commitAnimations];
 
-//resign the keyboard
--(BOOL) textFieldShouldReturn: (UITextField *) textField
-{
-    [textField resignFirstResponder];
-    return YES;
 }
 
 
