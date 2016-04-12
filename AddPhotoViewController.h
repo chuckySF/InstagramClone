@@ -10,6 +10,7 @@
 #import "User.h"
 
 
+
 @interface AddPhotoViewController : UIViewController
 @property User *user;
 

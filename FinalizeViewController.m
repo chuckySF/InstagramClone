@@ -65,15 +65,15 @@
 }
 
 
-
-
-
 #pragma dismiss view
 
 - (IBAction)cancelSharePhoto:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
+
+#pragma resign keyboard
+
+
 
 
 

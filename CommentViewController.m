@@ -31,7 +31,7 @@
     [super viewDidLoad];
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     self.moc = appDelegate.managedObjectContext;
-//     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
+     NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
     
     
     //keyboard stuff
