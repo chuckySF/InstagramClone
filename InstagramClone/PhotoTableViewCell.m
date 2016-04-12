@@ -30,6 +30,11 @@
   [self.delegate didWanttoSeeComments:sender];
 }
 
+- (IBAction)onLikeButtonPressed:(UIButton *)sender {
+  
+  [self.delegate photoLiked: sender];
+
+}
 
 
 
