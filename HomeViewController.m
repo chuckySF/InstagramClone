@@ -45,7 +45,7 @@
   [self pullPhotosFromCoreData];
   [self.tableView reloadData];
   
-  
+  [self.tableView setAllowsSelection:NO];
 }
 
 
