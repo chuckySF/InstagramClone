@@ -41,6 +41,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
   self.segmentedControl.selectedSegmentIndex = 0;
+  
+  [self pullPhotosFromCoreData];
   [self.tableView reloadData];
   
   
@@ -60,8 +62,8 @@
       [self createDefaultPhotosAndSaveToCoreData];
     }
   
+  //sets up current user
   Photo *tempPhoto = [self.photos objectAtIndex:0];
-  
   self.currentUser = (User *)tempPhoto.user;
   
 }
