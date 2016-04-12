@@ -291,6 +291,9 @@
                                                     <state key="normal" title="View all 3 comments">
                                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="49" y="589" width="142" height="30"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="onCommentButtonPressed:" destination="6sI-dh-82u" eventType="touchUpInside" id="zhb-Lg-E7l"/>
                                                     </connections>
@@ -332,7 +335,8 @@
                                                             <exclude reference="gl9-OI-mgq"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="202" y="473" width="30" height="30"/>
                                                         <mask key="constraints">
                                                             <include reference="1vY-Zg-wLf"/>
                                                             <include reference="gl9-OI-mgq"/>
@@ -387,7 +391,8 @@
                                                             <include reference="OCH-Te-qVX"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="60" width="240" height="400"/>
                                                         <mask key="constraints">
                                                             <exclude reference="IID-W5-6gG"/>
                                                             <exclude reference="OCH-Te-qVX"/>
@@ -420,7 +425,8 @@
                                                             <exclude reference="zjd-TV-Orp"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="539" width="224" height="50"/>
                                                         <mask key="constraints">
                                                             <exclude reference="Aj0-bZ-LOl"/>
                                                             <exclude reference="Bdo-44-tLk"/>
