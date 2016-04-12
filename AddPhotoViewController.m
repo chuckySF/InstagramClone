@@ -19,6 +19,10 @@
 @property NSMutableArray *photosArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
 @end
 
 @implementation AddPhotoViewController
@@ -30,7 +34,40 @@
     
     self.moc = appDelegate.managedObjectContext;
     
-    self.photosArray = [NSMutableArray new];}
+    self.photosArray = [NSMutableArray new];
+
+
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //////formatting
+    //remove back button text
+    //[[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 50.f) forBarMetrics:UIBarMetricsDefault];
+    //setup formatting
+    UIColor *instaGray = [UIColor colorWithRed:(45/255.0) green:(45/255.0) blue:(45/255.0) alpha:1];
+    self.navigationController.navigationBar.barTintColor = instaGray;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Gotham Narrow" size:18]};
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSFontAttributeName: [UIFont fontWithName:@"Gotham Medium" size:18.0f]}];
+
+    
+    
+    //////setup formatting
+    self.cancelButton.imageView.clipsToBounds = true;
+    self.cancelButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.cancelButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+//    self.doneButton.imageView.clipsToBounds = true;
+//    self.doneButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.doneButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

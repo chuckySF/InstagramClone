@@ -34,11 +34,16 @@
 
 
 #pragma actions
-- (IBAction)onDismissButtonPressed:(UIBarButtonItem *)sender {
-  
+- (IBAction)onDismissButtonPressed:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-  
+    
 }
+
+//- (IBAction)onDismissButtonPressed:(UIBarButtonItem *)sender {
+//  
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//  
+//}
 
 #pragma scroll delegate methods
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)aScrollView {

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 
 @end
@@ -43,6 +45,20 @@
 }
 
 //this action has 2 actions, the exit segue and add the photoin coredata
+
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //////setup formatting
+    self.cancelButton.imageView.clipsToBounds = true;
+    self.cancelButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.cancelButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    self.doneButton.imageView.clipsToBounds = true;
+    self.doneButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.doneButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+}
+
 
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
     self.photo.photoDescription = self.textView.text;

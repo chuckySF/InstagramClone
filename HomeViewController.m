@@ -31,6 +31,8 @@
 @property Photo *clickedPhoto;
 @property User *currentUser;
 
+@property (weak, nonatomic) IBOutlet UIButton *gridButton;
+@property (weak, nonatomic) IBOutlet UIButton *listButton;
 
 @end
 
@@ -43,7 +45,8 @@
   self.segmentedControl.selectedSegmentIndex = 0;
   [self.tableView reloadData];
   
-  
+    //////setup formatting
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
 }
 
 
@@ -58,11 +61,39 @@
   
     if (self.photos.count == 0) {
       [self createDefaultPhotosAndSaveToCoreData];
+        
+        
     }
   
   Photo *tempPhoto = [self.photos objectAtIndex:0];
   
   self.currentUser = (User *)tempPhoto.user;
+    
+    
+    //////setup formatting
+    UIColor *instaBlue = [UIColor colorWithRed:(18/255.0) green:(86/255.0) blue:(136/255.0) alpha:1];
+    self.navigationController.navigationBar.barTintColor = instaBlue;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    
+    //////setup formatting
+    self.gridButton.imageView.clipsToBounds = true;
+    self.gridButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
+    [self.gridButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    
+    
+    self.listButton.imageView.clipsToBounds = true;
+    self.listButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
+    [self.listButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    
+    
   
 }
 
@@ -189,8 +220,9 @@
   cell.delegate = self;
   
   //selction turned off
-  //cell.selectionStyle =  UITableViewCellSelectionStyleNone;
+  cell.selectionStyle =  UITableViewCellSelectionStyleNone;
   
+
   return cell;
 }
 

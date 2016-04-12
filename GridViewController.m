@@ -10,12 +10,15 @@
 #import "GridViewController.h"
 #import "GridCollectionViewCell.h"
 #import "GridCollectionViewFlowLayout.h"
+#import "Photo.h"
 
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet UIButton *gridButton;
+@property (weak, nonatomic) IBOutlet UIButton *listButton;
 
 
 @end
@@ -28,6 +31,22 @@
     self.collectionView.delegate = self;
     self.collectionView.collectionViewLayout = [[GridCollectionViewFlowLayout alloc] init];
     NSLog(@"%lu",(unsigned long)self.photos.count);
+    
+    
+    
+    //////setup formatting
+    self.gridButton.imageView.clipsToBounds = true;
+    self.gridButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
+    [self.gridButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    
+    
+    self.listButton.imageView.clipsToBounds = true;
+    self.listButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
+    //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
+    [self.listButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,14 +71,13 @@
 #pragma CollectionView
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return self.photos.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GridCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gridCell" forIndexPath:indexPath];
-    [cell.imageView setImage:[UIImage imageNamed:@"image1"]];
-    
-    //cell.imageView.center = CGPointMake(cell.contentView.bounds.size.width/2, cell.contentView.bounds.size.height/2);
+    UIImage *photoImage = [UIImage imageWithData:[[self.photos objectAtIndex:indexPath.row] photoImage]];
+    [cell.imageView setImage:photoImage];
     
 
     
