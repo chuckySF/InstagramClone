@@ -41,10 +41,48 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take/Choose Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqb-U1-5gb">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="RIK-Ko-Z4Z"/>
+                                    <constraint firstAttribute="height" constant="21" id="da8-95-Jd2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RIK-Ko-Z4Z"/>
+                                        <exclude reference="da8-95-Jd2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="RIK-Ko-Z4Z"/>
+                                        <include reference="da8-95-Jd2"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L0P-Nq-D0l">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="934-Uz-anl"/>
+                                    <constraint firstAttribute="width" constant="400" id="cnF-KR-qoc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="934-Uz-anl"/>
+                                        <exclude reference="cnF-KR-qoc"/>
+                                    </mask>
+                                </variation>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="80" y="177" width="240" height="245"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="934-Uz-anl"/>
+                                        <include reference="cnF-KR-qoc"/>
+                                    </mask>
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZ2-cq-RDA">
@@ -141,12 +179,12 @@
                                         <exclude reference="Cox-Ef-oQF"/>
                                         <exclude reference="TM7-1I-YRB"/>
                                         <exclude reference="kQZ-2Y-krg"/>
-                                        <exclude reference="8af-HI-92w"/>
-                                        <exclude reference="HdT-Uk-GD2"/>
-                                        <exclude reference="hVj-6u-Mrf"/>
                                         <exclude reference="3lX-oM-tk9"/>
                                         <exclude reference="euk-eR-vFq"/>
                                         <exclude reference="lpJ-9F-Ovy"/>
+                                        <exclude reference="8af-HI-92w"/>
+                                        <exclude reference="HdT-Uk-GD2"/>
+                                        <exclude reference="hVj-6u-Mrf"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -160,33 +198,42 @@
                                         <include reference="Cox-Ef-oQF"/>
                                         <include reference="TM7-1I-YRB"/>
                                         <include reference="kQZ-2Y-krg"/>
-                                        <include reference="8af-HI-92w"/>
-                                        <include reference="HdT-Uk-GD2"/>
-                                        <include reference="hVj-6u-Mrf"/>
                                         <include reference="3lX-oM-tk9"/>
                                         <include reference="euk-eR-vFq"/>
                                         <include reference="lpJ-9F-Ovy"/>
+                                        <include reference="8af-HI-92w"/>
+                                        <include reference="HdT-Uk-GD2"/>
+                                        <include reference="hVj-6u-Mrf"/>
                                     </mask>
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z3w-0l-dAg" firstAttribute="top" secondItem="QZ2-cq-RDA" secondAttribute="bottom" id="FXw-D1-9Qh"/>
+                            <constraint firstItem="Cqb-U1-5gb" firstAttribute="centerY" secondItem="95V-ph-c8H" secondAttribute="centerY" id="XZe-IJ-Zyw"/>
                             <constraint firstItem="UNf-wc-eI0" firstAttribute="centerX" secondItem="95V-ph-c8H" secondAttribute="centerX" id="brh-D7-FdZ"/>
+                            <constraint firstItem="L0P-Nq-D0l" firstAttribute="centerY" secondItem="95V-ph-c8H" secondAttribute="centerY" id="kaO-Iy-hOg"/>
+                            <constraint firstItem="L0P-Nq-D0l" firstAttribute="centerX" secondItem="95V-ph-c8H" secondAttribute="centerX" id="oHO-A2-5wS"/>
                             <constraint firstItem="QZ2-cq-RDA" firstAttribute="leading" secondItem="95V-ph-c8H" secondAttribute="leadingMargin" constant="-20" id="rWz-um-X1v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QZ2-cq-RDA" secondAttribute="trailing" constant="-20" id="tep-Zb-iaO"/>
                             <constraint firstItem="UNf-wc-eI0" firstAttribute="top" secondItem="95V-ph-c8H" secondAttribute="topMargin" constant="29" id="vdz-Az-4Qt"/>
+                            <constraint firstItem="Cqb-U1-5gb" firstAttribute="centerX" secondItem="95V-ph-c8H" secondAttribute="centerX" id="zCF-JJ-TCl"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="UNf-wc-eI0"/>
+                                <exclude reference="Cqb-U1-5gb"/>
                                 <exclude reference="L0P-Nq-D0l"/>
                                 <exclude reference="QZ2-cq-RDA"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="kaO-Iy-hOg"/>
+                                <exclude reference="oHO-A2-5wS"/>
                                 <exclude reference="brh-D7-FdZ"/>
                                 <exclude reference="vdz-Az-4Qt"/>
+                                <exclude reference="XZe-IJ-Zyw"/>
+                                <exclude reference="zCF-JJ-TCl"/>
                                 <exclude reference="rWz-um-X1v"/>
                                 <exclude reference="tep-Zb-iaO"/>
                                 <exclude reference="FXw-D1-9Qh"/>
@@ -206,11 +253,22 @@
                                 <include reference="FXw-D1-9Qh"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Cqb-U1-5gb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="kaO-Iy-hOg"/>
+                                <include reference="oHO-A2-5wS"/>
+                                <include reference="XZe-IJ-Zyw"/>
+                                <include reference="zCF-JJ-TCl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add Photo" id="Nbh-SW-SCE">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="VxD-zj-qII">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rff-Gv-h9U">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="20" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="cancel"/>
                                 <connections>
@@ -220,7 +278,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="rMa-by-piK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BQC-5k-xqQ">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="334" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
@@ -239,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJR-W8-7JQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="1759"/>
+            <point key="canvasLocation" x="1476" y="1758.75"/>
         </scene>
         <!--Add photo-->
         <scene sceneID="N7C-6l-jUF">
@@ -335,14 +393,14 @@
                                 <exclude reference="2NC-7B-5sD"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="krg-6N-Xjs"/>
+                                <exclude reference="KZA-a2-zAc"/>
+                                <exclude reference="gIf-UZ-jIC"/>
                                 <exclude reference="9oW-Gd-a4g"/>
                                 <exclude reference="scC-3d-Fur"/>
                                 <exclude reference="UbX-Qk-UMH"/>
                                 <exclude reference="bba-KD-jTa"/>
                                 <exclude reference="weF-Kk-Ggq"/>
-                                <exclude reference="KZA-a2-zAc"/>
-                                <exclude reference="gIf-UZ-jIC"/>
-                                <exclude reference="krg-6N-Xjs"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -352,21 +410,21 @@
                                 <include reference="2NC-7B-5sD"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="krg-6N-Xjs"/>
+                                <include reference="KZA-a2-zAc"/>
+                                <include reference="gIf-UZ-jIC"/>
                                 <include reference="9oW-Gd-a4g"/>
                                 <include reference="scC-3d-Fur"/>
                                 <include reference="UbX-Qk-UMH"/>
                                 <include reference="bba-KD-jTa"/>
                                 <include reference="weF-Kk-Ggq"/>
-                                <include reference="KZA-a2-zAc"/>
-                                <include reference="gIf-UZ-jIC"/>
-                                <include reference="krg-6N-Xjs"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add photo" id="tuQ-dg-2HI">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="VEv-o0-xLU">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a5G-yp-lK7">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="20" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="cancel"/>
                                 <connections>
@@ -376,13 +434,17 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Y5g-rh-g7P">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WfT-La-ZjN">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="334" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="done"/>
                                 <connections>
                                     <action selector="onShareButtonPressed:" destination="qK9-bP-QLa" eventType="touchUpInside" id="KTr-qX-T04"/>
+                                    <segue destination="i2l-Sf-Xbn" kind="unwind" unwindAction="prepareForUnwind:" id="DBw-e1-PAW"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="i2l-Sf-Xbn" kind="unwind" unwindAction="prepareForUnwind:" id="heY-X4-bxi"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
