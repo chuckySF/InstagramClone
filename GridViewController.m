@@ -13,6 +13,9 @@
 #import "Photo.h"
 #import "AddPhotoViewController.h"
 
+#import "ZoomImageViewController.h"
+
+
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -21,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *gridButton;
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
 
+@property UIImage *zoomImage;
 
 @end
 
@@ -53,6 +57,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setHidesBackButton:true];
     self.segmentedControl.selectedSegmentIndex = 1;
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
+
+    
+    self.gridButton.highlighted = false;
+    self.listButton.highlighted = true;
 }
 
 
@@ -86,11 +96,6 @@
 }
 
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-}
-
 #pragma Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   
@@ -105,9 +110,25 @@
   actualDestVC.user = self.user;
   NSLog(@"%@", self.user.userName);
     
+  } else if ([segue.identifier isEqualToString:@"zoomSegue"]){
+      
+      ZoomImageViewController *destVC = segue.destinationViewController;
+      destVC.passedImage = self.zoomImage;
+      
   }
 
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Photo *zommedPhoto = [self.photos objectAtIndex:indexPath.row];
+
+    NSData *imageData = zommedPhoto.photoImage;
+
+    self.zoomImage = [UIImage imageWithData:imageData];
+    
+    [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
+    
+}
 
 @end

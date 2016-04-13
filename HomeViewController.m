@@ -23,7 +23,7 @@
 
 
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate>
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate, UIScrollViewDelegate>
 @property NSMutableArray *photos;
 @property NSMutableArray *users;
 @property NSManagedObjectContext *moc;
@@ -51,6 +51,10 @@
   
   //////setup formatting
   self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
+    
+    
+    self.gridButton.highlighted = true;
+    self.listButton.highlighted = false;
 }
 
 
@@ -61,6 +65,7 @@
   AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
   self.moc = appDelegate.managedObjectContext;
   
+    
   [self pullPhotosFromCoreData];
   
   if (self.photos.count == 0) {
@@ -92,6 +97,9 @@
   //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
   //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
   [self.listButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    
+
+    
   
 }
 
@@ -212,6 +220,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
+       
   //grabbing temporary photo item
   Photo *tempPhoto = [self.photos objectAtIndex:indexPath.row];
   
@@ -226,6 +235,13 @@
   NSData *imageData = tempPhoto.photoImage;
   cell.photoImageView.image = [UIImage imageWithData:imageData];
   cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
+    
+    //make profile imageview circular
+    cell.profileImageView.layer.cornerRadius = 22;
+    cell.profileImageView.layer.masksToBounds = YES;
+
+    
+    
   cell.pictureDescription.text = tempPhoto.photoDescription;
   
   
@@ -250,7 +266,7 @@
   
   
   
-  NSString *likeCount = [NSString stringWithFormat:@"%lu", tempPhoto.likes.count];
+  NSString *likeCount = [NSString stringWithFormat:@"💙 %lu likes", tempPhoto.likes.count];
   
   
   cell.likeCount.text = likeCount;
@@ -418,6 +434,7 @@
     
     ZoomImageViewController *destVC = segue.destinationViewController;
     destVC.passedImage = self.zoomImage;
+      
     
   }else if ([segue.identifier isEqualToString:@"homeToAddPhotoSegue"]){
     
@@ -441,54 +458,72 @@
 -(NSString *)convertTimeInMinutesToString:(int)minutes{
   if (minutes < 1)
   {
-    NSString *returnedString = @"Less than one minute ago";
+    NSString *returnedString = @"Now";
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes < 60)
   {
-    NSString *returnedString = [NSString stringWithFormat:@"%i minutes ago", minutes];
+    NSString *returnedString = [NSString stringWithFormat:@"%im ago", minutes];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }else if (minutes > 60 && minutes < 120)
   {
     int hours = minutes / 60;
-    NSString *returnedString = [NSString stringWithFormat:@"%i hour ago", hours];
+    NSString *returnedString = [NSString stringWithFormat:@"%ih ago", hours];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > 60 && minutes < (60 * 24))
   {
     int hours = minutes / 60;
-    NSString *returnedString = [NSString stringWithFormat:@"%i hours ago", hours];
+    NSString *returnedString = [NSString stringWithFormat:@"%ih ago", hours];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > (60 * 24) && minutes < (60 * 24 * 7))
   {
     int days = minutes / (60 * 24);
-    NSString *returnedString = [NSString stringWithFormat:@"%i days ago", days];
+    NSString *returnedString = [NSString stringWithFormat:@"%id ago", days];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }else if (minutes > (60 * 24 * 7) && minutes < (60 * 24 * 14)){
     int weeks = minutes / (60 * 24 * 7);
-    NSString *returnedString = [NSString stringWithFormat:@"%i week ago", weeks];
+    NSString *returnedString = [NSString stringWithFormat:@"%iw ago", weeks];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else if (minutes > (60 * 24 * 7))
   {
     int weeks = minutes / (60 * 24 * 7);
-    NSString *returnedString = [NSString stringWithFormat:@"%i weeks ago", weeks];
+    NSString *returnedString = [NSString stringWithFormat:@"%iw ago", weeks];
     //NSLog(@"%@ was returned",returnedString);
     return returnedString;
   }
   else {
     return nil;
   }
-  
-  
+
 }
+
+
+// snap cell while scrolling
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+//{
+//    // Determine which table cell the scrolling will stop on.
+//    CGFloat cellHeight = 640.0f;
+//    NSInteger cellIndex = floor(targetContentOffset->y / cellHeight);
+//    
+//    // Round to the next cell if the scrolling will stop over halfway to the next cell.
+//    if ((targetContentOffset->y - (floor(targetContentOffset->y / cellHeight/3) * cellHeight/3)) > cellHeight/3) {
+//        cellIndex++;
+//    }
+//    
+//    // Adjust stopping point to exact beginning of cell.
+//    targetContentOffset->y = cellIndex * cellHeight;
+//}
+
+
 
 
 @end

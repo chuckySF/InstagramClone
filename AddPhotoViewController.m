@@ -22,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *cameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *libraryButton;
+@property (weak, nonatomic) IBOutlet UIButton *videoButton;
+
 @end
 
 
@@ -38,7 +42,12 @@
     self.moc = appDelegate.managedObjectContext;
     
     self.photosArray = [NSMutableArray new];
-
+    
+    ////formatting
+    [self.cameraButton setHighlighted:true];
+    [self.libraryButton setHighlighted:true];
+    [self.videoButton setHighlighted:true];
+    self.videoButton.userInteractionEnabled = false;
 
 }
 
@@ -95,19 +104,35 @@
 
 //user selects library
 - (IBAction)onLibraryPressedButton:(UIButton *)sender {
+    
+    [self.cameraButton setHighlighted:true];
+    [self.libraryButton setHighlighted:false];
+    [self.videoButton setHighlighted:true];
+    
+    
     UIImagePickerController *controller = [[UIImagePickerController alloc] init];
     controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     controller.delegate = self;
     [self presentViewController:controller animated:YES completion:nil];
+    
+    
+    
 }
 
 //user selects camara
 - (IBAction)onCameraButtonPressed:(UIButton *)sender {
     
+    
+    [self.cameraButton setHighlighted:false];
+    [self.libraryButton setHighlighted:true];
+    [self.videoButton setHighlighted:true];
+    
     UIImagePickerController *controller = [[UIImagePickerController alloc] init];
     controller.sourceType = UIImagePickerControllerSourceTypeCamera;
     controller.delegate = self;
     [self presentViewController:controller animated:YES completion:nil];
+    
+    
 }
 
 

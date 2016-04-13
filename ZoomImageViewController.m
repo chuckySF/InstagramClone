@@ -32,6 +32,18 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return true;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    
+    return UIStatusBarAnimationSlide;
+}
 
 #pragma actions
 - (IBAction)onDismissButtonPressed:(UIButton *)sender {

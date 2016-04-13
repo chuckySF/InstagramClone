@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UIButton *userNameButtonOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *locationButtonOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *viewCommentButton;
+
 @property (weak, nonatomic) IBOutlet UITextView *pictureDescription;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *datePosted;
