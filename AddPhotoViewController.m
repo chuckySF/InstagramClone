@@ -118,34 +118,11 @@
 
 
 
-//I passed the NSDATA Photo to the finalize VC
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:self.moc];
-    
-    //this is for the attribute value
-    NSData *imageData = UIImagePNGRepresentation(self.pickedImage);
-    
-    photo.photoImage = [NSData dataWithData:imageData];
-    
-    //sending the object Photo to the Finalize
-    FinalizeViewController *destVC = segue.destinationViewController;
-    destVC.photo = photo;
-    
-    //sending a user to stablish a relationship
-    destVC.user = self.user;
-    
-    NSLog(@"%@", self.user.userName);
-    
-}
-
 #pragma Camera
 //this sets the pickedImage
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
     
     //here we return a photo croped and rotated from the camera    
     image = [self squareImageWithImage:image scaledToSize:CGSizeMake(300,1)];
@@ -198,7 +175,28 @@
     return newImage;
 }
 
+#pragma finally passing the Photo object and a User to stablish relationship
 
+//I passed the NSDATA Photo to the finalize VC
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    
+    //here we pass the image as nsdata
+    NSData *imageData = UIImagePNGRepresentation(self.pickedImage);
+    
+    
+    //sending the object Photo to the Finalize
+    FinalizeViewController *destVC = segue.destinationViewController;
+    
+    destVC.photoData = imageData;
+    
+    //sending a user to stablish a relationship
+    destVC.user = self.user;
+    
+    NSLog(@"%@", self.user.userName);
+    
+}
 
 
 

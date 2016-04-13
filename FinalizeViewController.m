@@ -37,7 +37,7 @@
     self.moc = appDelegate.managedObjectContext;
     
     //displaying the image in the finalize VC
-    NSData *imagedata = self.photo.photoImage;
+    NSData *imagedata = self.photoData;
     
     self.imageView.image = [UIImage imageWithData:imagedata];
     
@@ -61,20 +61,25 @@
 
 
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
-    self.photo.photoDescription = self.textView.text;
     
-    self.photo.photoTimestamp =  [NSDate date];
+    
+    Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:self.moc];
+
+    photo.photoDescription = self.textView.text;
+    
+    photo.photoTimestamp =  [NSDate date];
+    
+    photo.photoImage = self.photoData;
     
     //setting the relationships
     //adding the picture to the user
-    [self.user addPhotosObject:self.photo];
-    
+    [self.user addPhotosObject:photo];
     
     NSError *error;
     
     if ([self.moc save:&error]){
-        [self.photos addObject:self.photo];
-        NSLog(@"%@,  %lu  in the array of photos", self.photo, self.photos.count);
+        [self.photos addObject:photo];
+        NSLog(@"%@,  %lu  in the array of photos", photo, self.photos.count);
     }else{
         NSLog(@"an error has occurred,...%@",error);
     }
@@ -87,7 +92,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma resign keyboard
 
 
 
