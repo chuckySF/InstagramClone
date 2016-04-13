@@ -34,7 +34,8 @@
      NSLog(@"sqlite dir = \n%@", appDelegate.applicationDocumentsDirectory);
     
     
-    //keyboard stuff
+    //textfield setting
+    self.enterCommentTextfield.placeholder =[NSString stringWithFormat:@"Enter a comment as %@", self.user.userName];
     
 }
 
@@ -78,6 +79,18 @@
     NSData *imageData = self.user.userImage;
     
     cell.imageCell.image = [UIImage imageWithData:imageData];
+    
+    
+    //making the profile picture circle
+    //we put the half of the height and weight as a value 
+    cell.imageCell.layer.cornerRadius = 40;
+    cell.imageCell.layer.masksToBounds = YES;
+    
+    //this is for ricky
+//    cell.profileImageView.layer.cornerRadius = 25;
+//    
+//    cell.profileImageView.layer.masksToBounds = YES;
+  
     
     //date code
     float timeSincePosting = [comment.commentTimestamp timeIntervalSinceNow] * -1;

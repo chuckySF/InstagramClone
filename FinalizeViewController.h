@@ -12,7 +12,8 @@
 
 
 @interface FinalizeViewController : UIViewController
-@property Photo *photo;
+//@property Photo *photo;
 @property User *user;
+@property NSData *photoData;
 
 @end

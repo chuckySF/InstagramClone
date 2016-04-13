@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -75,7 +75,7 @@
                                         <exclude reference="cnF-KR-qoc"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" fixedFrame="YES">
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="80" y="177" width="240" height="245"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -228,15 +228,15 @@
                                 <exclude reference="QZ2-cq-RDA"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kaO-Iy-hOg"/>
-                                <exclude reference="oHO-A2-5wS"/>
-                                <exclude reference="brh-D7-FdZ"/>
-                                <exclude reference="vdz-Az-4Qt"/>
+                                <exclude reference="FXw-D1-9Qh"/>
                                 <exclude reference="XZe-IJ-Zyw"/>
                                 <exclude reference="zCF-JJ-TCl"/>
+                                <exclude reference="brh-D7-FdZ"/>
+                                <exclude reference="vdz-Az-4Qt"/>
+                                <exclude reference="kaO-Iy-hOg"/>
+                                <exclude reference="oHO-A2-5wS"/>
                                 <exclude reference="rWz-um-X1v"/>
                                 <exclude reference="tep-Zb-iaO"/>
-                                <exclude reference="FXw-D1-9Qh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -246,11 +246,11 @@
                                 <include reference="QZ2-cq-RDA"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FXw-D1-9Qh"/>
                                 <include reference="brh-D7-FdZ"/>
                                 <include reference="vdz-Az-4Qt"/>
                                 <include reference="rWz-um-X1v"/>
                                 <include reference="tep-Zb-iaO"/>
-                                <include reference="FXw-D1-9Qh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -258,10 +258,10 @@
                                 <include reference="Cqb-U1-5gb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kaO-Iy-hOg"/>
-                                <include reference="oHO-A2-5wS"/>
                                 <include reference="XZe-IJ-Zyw"/>
                                 <include reference="zCF-JJ-TCl"/>
+                                <include reference="kaO-Iy-hOg"/>
+                                <include reference="oHO-A2-5wS"/>
                             </mask>
                         </variation>
                     </view>
