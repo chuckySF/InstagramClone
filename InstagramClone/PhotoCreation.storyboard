@@ -153,6 +153,9 @@
                                                 <include reference="TrB-YT-Uw0"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="video:" destination="B2f-VF-HTZ" eventType="touchUpInside" id="PFZ-vg-Mr7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
@@ -307,7 +310,7 @@
                         <viewControllerLayoutGuide type="top" id="bZj-qT-hGU"/>
                         <viewControllerLayoutGuide type="bottom" id="dho-qJ-mgS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QFb-d0-leH">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="QFb-d0-leH">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
