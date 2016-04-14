@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *gridButton;
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (weak, nonatomic) IBOutlet UIButton *hashtagButton;
 
 @property UIImage *zoomImage;
 
@@ -58,11 +60,20 @@
     [self.navigationItem setHidesBackButton:true];
     self.segmentedControl.selectedSegmentIndex = 1;
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
+    [self.navigationController.navigationBar setHidden:NO];
 
     
-    self.gridButton.highlighted = false;
-    self.listButton.highlighted = true;
+    //////setup formatting
+    UIColor *instaBlue = [UIColor colorWithRed:(18/255.0) green:(86/255.0) blue:(136/255.0) alpha:1];
+    self.navigationController.navigationBar.barTintColor = instaBlue;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    
+
+    
 }
 
 
@@ -130,5 +141,15 @@
     [self performSegueWithIdentifier:@"zoomSegue" sender:nil];
     
 }
+
+- (IBAction)onGridPressed:(UIButton *)sender {
+    [self.collectionView setContentOffset:CGPointZero animated:YES];
+
+}
+
+
+
+
+
 
 @end

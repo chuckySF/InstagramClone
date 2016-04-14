@@ -37,9 +37,22 @@
     //textfield setting
     self.enterCommentTextfield.placeholder =[NSString stringWithFormat:@"Enter a comment as %@", self.user.userName];
     
+    
+    self.addCommentButton.layer.cornerRadius = 8; // this value vary as per your desire
+    self.addCommentButton.clipsToBounds = YES;
+
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    //[self.navigationItem setHidesBackButton:true];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
     self.comments = [NSMutableArray new];
     
@@ -83,7 +96,7 @@
     
     //making the profile picture circle
     //we put the half of the height and weight as a value 
-    cell.imageCell.layer.cornerRadius = 40;
+    cell.imageCell.layer.cornerRadius = 22;
     cell.imageCell.layer.masksToBounds = YES;
     
     //this is for ricky
@@ -219,37 +232,37 @@
 -(NSString *)convertTimeInMinutesToString:(int)minutes{
     if (minutes < 1)
     {
-        NSString *returnedString = [NSString stringWithFormat:@"%i s", minutes];
+        NSString *returnedString = [NSString stringWithFormat:@"Now"];
         return returnedString;
     }
     else if (minutes < 60)
     {
-        NSString *returnedString = [NSString stringWithFormat:@"%i m", minutes];
+        NSString *returnedString = [NSString stringWithFormat:@"%im ago", minutes];
         NSLog(@"%@ was returned",returnedString);
         return returnedString;
     }else if (minutes > 60 && minutes < 120)
     {
         int hours = minutes / 60;
-        NSString *returnedString = [NSString stringWithFormat:@"%i h", hours];
+        NSString *returnedString = [NSString stringWithFormat:@"%ih ago", hours];
         NSLog(@"%@ was returned",returnedString);
         return returnedString;
     }
     else if (minutes > 60 && minutes < (60 * 24))
     {
         int hours = minutes / 60;
-        NSString *returnedString = [NSString stringWithFormat:@"%i h", hours];
+        NSString *returnedString = [NSString stringWithFormat:@"%i ago", hours];
         NSLog(@"%@ was returned",returnedString);
         return returnedString;
     }
     else if (minutes > (60 * 24) && minutes < (60 * 24 * 7))
     {
         int days = minutes / (60 * 24);
-        NSString *returnedString = [NSString stringWithFormat:@"%i day", days];
+        NSString *returnedString = [NSString stringWithFormat:@"%id ago", days];
         NSLog(@"%@ was returned",returnedString);
         return returnedString;
     }else if (minutes > (60 * 24 * 7) && minutes < (60 * 24 * 14)){
         int weeks = minutes / (60 * 24 * 7);
-        NSString *returnedString = [NSString stringWithFormat:@"%i week", weeks];
+        NSString *returnedString = [NSString stringWithFormat:@"%iw ago", weeks];
         NSLog(@"%@ was returned",returnedString);
         return returnedString;
     }

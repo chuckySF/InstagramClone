@@ -10,9 +10,9 @@
 		2342425A1CB8A0E000C82160 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234242591CB8A0E000C82160 /* Comment.storyboard */; };
 		2342425C1CB8A11100C82160 /* Grid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425B1CB8A11100C82160 /* Grid.storyboard */; };
 		2342425E1CB8A15200C82160 /* PhotoCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */; };
+		238F52941CBEEDDA000A3D61 /* NewTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238F52931CBEEDDA000A3D61 /* NewTextView.m */; };
 		23E2CE9A1CBEB9B400ACCDDE /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E2CE951CBEB9B400ACCDDE /* Hashtag.m */; };
 		23E2CE9B1CBEB9B400ACCDDE /* HashtagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E2CE971CBEB9B400ACCDDE /* HashtagViewController.m */; };
-		23E2CE9C1CBEB9B400ACCDDE /* UITextView+DisableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E2CE991CBEB9B400ACCDDE /* UITextView+DisableCopy.m */; };
 		7B5726B31CB97B83005D5F26 /* CommentCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */; };
 		D80F97C21CB71D9B00072623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C11CB71D9B00072623 /* main.m */; };
 		D80F97C51CB71D9B00072623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F97C41CB71D9B00072623 /* AppDelegate.m */; };
@@ -46,12 +46,12 @@
 		234242591CB8A0E000C82160 /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		2342425B1CB8A11100C82160 /* Grid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Grid.storyboard; sourceTree = "<group>"; };
 		2342425D1CB8A15200C82160 /* PhotoCreation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoCreation.storyboard; sourceTree = "<group>"; };
+		238F52921CBEEDDA000A3D61 /* NewTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTextView.h; sourceTree = "<group>"; };
+		238F52931CBEEDDA000A3D61 /* NewTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTextView.m; sourceTree = "<group>"; };
 		23E2CE941CBEB9B400ACCDDE /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
 		23E2CE951CBEB9B400ACCDDE /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
 		23E2CE961CBEB9B400ACCDDE /* HashtagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashtagViewController.h; sourceTree = "<group>"; };
 		23E2CE971CBEB9B400ACCDDE /* HashtagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashtagViewController.m; sourceTree = "<group>"; };
-		23E2CE981CBEB9B400ACCDDE /* UITextView+DisableCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+DisableCopy.h"; sourceTree = "<group>"; };
-		23E2CE991CBEB9B400ACCDDE /* UITextView+DisableCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+DisableCopy.m"; sourceTree = "<group>"; };
 		7B5726B11CB97B83005D5F26 /* CommentCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCellTableViewCell.h; sourceTree = "<group>"; };
 		7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCellTableViewCell.m; sourceTree = "<group>"; };
 		D80F97BD1CB71D9B00072623 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +124,8 @@
 				D8BE28AE1CB9ACE9002C7500 /* GridCollectionViewFlowLayout.m */,
 				7B5726B11CB97B83005D5F26 /* CommentCellTableViewCell.h */,
 				7B5726B21CB97B83005D5F26 /* CommentCellTableViewCell.m */,
-				23E2CE981CBEB9B400ACCDDE /* UITextView+DisableCopy.h */,
-				23E2CE991CBEB9B400ACCDDE /* UITextView+DisableCopy.m */,
+				238F52921CBEEDDA000A3D61 /* NewTextView.h */,
+				238F52931CBEEDDA000A3D61 /* NewTextView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -309,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D80F98041CB7236E00072623 /* FinalizeViewController.m in Sources */,
+				238F52941CBEEDDA000A3D61 /* NewTextView.m in Sources */,
 				D80F97EF1CB7221A00072623 /* Like.m in Sources */,
 				23E2CE9A1CBEB9B400ACCDDE /* Hashtag.m in Sources */,
 				D8BE28AF1CB9ACE9002C7500 /* GridCollectionViewCell.m in Sources */,
@@ -327,7 +328,6 @@
 				D80F97F81CB7230A00072623 /* GridViewController.m in Sources */,
 				D80F97CE1CB71D9B00072623 /* InstagramClone.xcdatamodeld in Sources */,
 				D80F97C21CB71D9B00072623 /* main.m in Sources */,
-				23E2CE9C1CBEB9B400ACCDDE /* UITextView+DisableCopy.m in Sources */,
 				D80F97EA1CB7221A00072623 /* Photo+CoreDataProperties.m in Sources */,
 				D80F97EE1CB7221A00072623 /* Like+CoreDataProperties.m in Sources */,
 				D80F97F51CB722FE00072623 /* HomeViewController.m in Sources */,

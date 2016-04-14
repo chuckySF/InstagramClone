@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewTextView.h"
+
 @protocol PhotoTableViewCellDelegate
 -(void)didTapZoom:(UIButton *)button;
 -(void)didWanttoSeeComments:(UIButton *)button;
@@ -23,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *locationButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *viewCommentButton;
 
-@property (weak, nonatomic) IBOutlet UITextView *pictureDescription;
+@property (weak, nonatomic) IBOutlet NewTextView *pictureDescription;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
 @property (weak, nonatomic) IBOutlet UILabel *datePosted;
 @property (weak, nonatomic ) UITapGestureRecognizer *imageTapped;
