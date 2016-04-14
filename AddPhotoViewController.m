@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *libraryButton;
 @property (weak, nonatomic) IBOutlet UIButton *videoButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @end
 
@@ -78,6 +79,24 @@
 //    [self.doneButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
     
     
+    //disable Next button if imageView is nil
+    if (self.pickedImage == nil) {
+        self.nextButton.userInteractionEnabled = false;
+        self.nextButton.highlighted = true;
+    } else {
+        self.nextButton.userInteractionEnabled = true;
+        self.nextButton.highlighted = false;
+        [self.nextButton setBackgroundColor:[UIColor colorWithRed:109/255.0 green:201/255.0 blue:147/255.0 alpha:1.0]];
+        
+        
+        self.nextButton.layer.cornerRadius = 3; // this value vary as per your desire
+        self.nextButton.clipsToBounds = YES;
+
+        [self.nextButton setTitleColor:[UIColor colorWithRed:45/255.0 green:45/255.0 blue:45/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
+    }
+
+
 }
 
 

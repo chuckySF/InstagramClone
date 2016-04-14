@@ -20,6 +20,12 @@
 #import "ZoomImageViewController.h"
 #import "AddPhotoViewController.h"
 #import "Like.h"
+#import "NewTextView.h"
+
+
+
+
+
 
 
 
@@ -34,6 +40,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *gridButton;
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (weak, nonatomic) IBOutlet UIButton *hashtagButton;
 
 @end
 
@@ -43,7 +51,8 @@
 #pragma View load/Appear
 
 -(void)viewWillAppear:(BOOL)animated{
-  
+    [self.navigationItem setHidesBackButton:true];
+
   [self pullPhotosFromCoreData];
   [self.tableView reloadData];
   
@@ -53,8 +62,6 @@
   self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName:[UIFont fontWithName:@"Billabong" size:30]};
     
     
-    self.gridButton.highlighted = true;
-    self.listButton.highlighted = false;
 }
 
 
@@ -85,11 +92,9 @@
   
   
   //////setup formatting
-  self.gridButton.imageView.clipsToBounds = true;
-  self.gridButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-  //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0);
-  //self.gridButton.imageView.frame.size = CGSizeMake(44.0, 44.0)
-  [self.gridButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+  //self.gridButton.imageView.clipsToBounds = true;
+  //self.gridButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+  //[self.gridButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
   
   
   self.listButton.imageView.clipsToBounds = true;
@@ -240,20 +245,20 @@
     cell.profileImageView.layer.cornerRadius = 22;
     cell.profileImageView.layer.masksToBounds = YES;
 
-    
-    
-  cell.pictureDescription.text = tempPhoto.photoDescription;
-  
+    cell.pictureDescription.text = tempPhoto.photoDescription;
   
   //Comment button Title logic
   
   if (tempPhoto.comments.count == 0)
   {
-    [cell.commentButton setTitle:@"Comment" forState:UIControlStateNormal];
+    [cell.commentButton setTitle:@"Comment this photo" forState:UIControlStateNormal];
+  } else if (tempPhoto.comments.count == 1) {
+      NSString *buttontitle = [NSString stringWithFormat:@"View %lu comment", tempPhoto.comments.count];
+      [cell.commentButton setTitle:buttontitle forState:UIControlStateNormal];
   }
   else
   {
-    NSString *buttontitle = [NSString stringWithFormat:@"Comments %lu", tempPhoto.comments.count];
+    NSString *buttontitle = [NSString stringWithFormat:@"View %lu comments", tempPhoto.comments.count];
     [cell.commentButton setTitle:buttontitle forState:UIControlStateNormal];
   }
   
@@ -279,11 +284,11 @@
   
   //Decides which heart appears
   if ([self currentUserHasLikedPicture:tempPhoto]) {
-    [cell.heartButton setImage:[UIImage imageNamed:@"heart-full-red"] forState:UIControlStateNormal];
+    [cell.heartButton setBackgroundImage:[UIImage imageNamed:@"hearts-100-red"] forState:UIControlStateNormal];
     //NSLog(@"this image should be the full heart");
     
   }else {
-    [cell.heartButton setImage:[UIImage imageNamed:@"heart-outline"] forState:UIControlStateNormal];
+    [cell.heartButton setBackgroundImage:[UIImage imageNamed:@"hearts-100-gray"] forState:UIControlStateNormal];
     //NSLog(@"this image should be empty heart");
   }
   
@@ -293,8 +298,9 @@
 
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
-  NSString *delete = [NSString stringWithFormat:@"Delete Picture"];
+  NSString *delete = [NSString stringWithFormat:@"Delete"];
   return delete;
+    
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -416,7 +422,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   if ([segue.identifier isEqualToString:@"gridSegue"]){
     
-    GridViewController *destVC =  segue.destinationViewController;
+      UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+      GridViewController *destVC = (GridViewController *)navController.childViewControllers.lastObject;
+      
+      
+    //GridViewController *destVC =  segue.destinationViewController;
     destVC.photos = self.photos;
     destVC.user = self.currentUser;
     
@@ -450,7 +460,8 @@
 }
 
 -(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
-  
+    [self.tableView setContentOffset:CGPointZero animated:YES];
+
   
 }
 
@@ -505,6 +516,13 @@
   }
 
 }
+
+
+- (IBAction)onHomePressed:(UIButton *)sender {
+    [self.tableView setContentOffset:CGPointZero animated:YES];
+}
+
+
 
 
 // snap cell while scrolling

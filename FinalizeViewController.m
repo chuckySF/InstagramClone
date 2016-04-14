@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 
 
-@interface FinalizeViewController ()
+@interface FinalizeViewController  () <UITextViewDelegate>
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *photos;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -42,7 +42,14 @@
     self.imageView.image = [UIImage imageWithData:imagedata];
     
     self.photos = [[NSMutableArray alloc]init];
+    
+    self.textView.delegate = self;
+    
+    self.textView.text = @"Enter a description for the photo";
+    self.textView.textColor = [UIColor grayColor];
+
 }
+
 
 //this action has 2 actions, the exit segue and add the photoin coredata
 
@@ -56,12 +63,16 @@
     [self.cancelButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
     self.doneButton.imageView.clipsToBounds = true;
     self.doneButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.doneButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
+    [self.doneButton setFrame:CGRectMake(0, 0, 32.0, 32.0)];
 }
 
 
 - (IBAction)onShareButtonPressed:(UIButton *)sender {
     
+    
+    if ([self.textView.text isEqualToString:@"Enter a description for the photo"]) {
+        self.textView.text = @"";
+    }
     
     Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:self.moc];
 
@@ -94,7 +105,23 @@
 
 
 
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Enter a description for the photo"]) {
+        self.textView.text = @"";
+        self.textView.textColor = [UIColor grayColor];
+    }
+    [textView becomeFirstResponder];
+}
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        self.textView.text = @"Enter a description for the photo";
+        self.textView.textColor = [UIColor grayColor];
+    }
+    [textView resignFirstResponder];
+}
 
 
 
