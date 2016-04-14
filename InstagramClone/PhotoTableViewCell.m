@@ -6,6 +6,10 @@
 //  Copyright © 2016 Team4. All rights reserved.
 //
 
+
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UIKit/UIKit.h>
 #import "PhotoTableViewCell.h"
 
 @implementation PhotoTableViewCell
@@ -13,6 +17,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

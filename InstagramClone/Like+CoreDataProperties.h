@@ -2,7 +2,7 @@
 //  Like+CoreDataProperties.h
 //  InstagramClone
 //
-//  Created by Richard Velazquez on 4/7/16.
+//  Created by James Rochabrun on 13-04-16.
 //  Copyright © 2016 Team4. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Like (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSDate *likeTimestamp;
-@property (nullable, nonatomic, retain) User *user;
 @property (nullable, nonatomic, retain) Photo *photo;
+@property (nullable, nonatomic, retain) User *user;
+@property (nullable, nonatomic, retain) NSManagedObject *video;
 
 @end
 

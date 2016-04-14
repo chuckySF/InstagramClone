@@ -2,7 +2,7 @@
 //  Photo+CoreDataProperties.m
 //  InstagramClone
 //
-//  Created by Richard Velazquez on 4/7/16.
+//  Created by James Rochabrun on 13-04-16.
 //  Copyright © 2016 Team4. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,11 +13,13 @@
 
 @implementation Photo (CoreDataProperties)
 
-@dynamic photoTimestamp;
-@dynamic photoImage;
 @dynamic photoDescription;
-@dynamic user;
-@dynamic likes;
+@dynamic photoImage;
+@dynamic photoTimestamp;
+@dynamic photoVideo;
+@dynamic photoBool;
 @dynamic comments;
+@dynamic likes;
+@dynamic user;
 
 @end

@@ -120,10 +120,10 @@
 
     //adding the comment to the Photo
     [self.photo addCommentsObject:comment];
-    
+        
     //adding values to attributes
-    
     comment.commentText = self.enterCommentTextfield.text;
+
     
     comment.commentTimestamp = [NSDate date];
 
