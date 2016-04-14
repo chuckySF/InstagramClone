@@ -6,6 +6,10 @@
 //  Copyright © 2016 Team4. All rights reserved.
 //
 
+
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UIKit/UIKit.h>
 #import "PhotoTableViewCell.h"
 
 
@@ -38,7 +42,6 @@
     
 
     self.pictureDescription.editable = false;
-    
     
 }
 

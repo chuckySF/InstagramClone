@@ -1,19 +1,19 @@
 //
-//  Comment.h
+//  Photo.h
 //  InstagramClone
 //
-//  Created by Richard Velazquez on 4/7/16.
+//  Created by James Rochabrun on 13-04-16.
 //  Copyright © 2016 Team4. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Photo, User;
+@class Comment, Like, User;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Comment : NSManagedObject
+@interface Photo : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Comment+CoreDataProperties.h"
+#import "Photo+CoreDataProperties.h"

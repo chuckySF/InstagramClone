@@ -2,9 +2,14 @@
 //  AddPhotoViewController.m
 //  InstagramClone
 //
-//  Created by Richard Velazquez on 4/7/16.
+//  Created by JAMES ROCHABRUN on 4/7/16.
 //  Copyright © 2016 Team4. All rights reserved.
 //
+
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UIKit/UIKit.h>
+
 
 #import "AddPhotoViewController.h"
 #import "AppDelegate.h"
@@ -18,9 +23,10 @@
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *photosArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (strong, nonatomic) NSURL *videoURL;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (strong, nonatomic) MPMoviePlayerController *videoController;
 
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *libraryButton;
@@ -28,9 +34,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @end
-
-
-
 
 
 @implementation AddPhotoViewController
@@ -51,7 +54,6 @@
     self.videoButton.userInteractionEnabled = false;
 
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -77,10 +79,8 @@
 //    self.doneButton.imageView.clipsToBounds = true;
 //    self.doneButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //    [self.doneButton setFrame:CGRectMake(0, 0, 24.0, 24.0)];
-    
-    
     //disable Next button if imageView is nil
-    if (self.pickedImage == nil) {
+    if (self.pickedImage == nil && self.videoURL == nil) {
         self.nextButton.userInteractionEnabled = false;
         self.nextButton.highlighted = true;
     } else {
@@ -95,8 +95,6 @@
         [self.nextButton setTitleColor:[UIColor colorWithRed:45/255.0 green:45/255.0 blue:45/255.0 alpha:1.0] forState:UIControlStateNormal];
         
     }
-
-
 }
 
 
@@ -154,6 +152,15 @@
     
 }
 
+#pragma video
+- (IBAction)video:(UIButton *)sender {
+    
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerCameraCaptureModeVideo;
+    controller.delegate = self;
+    controller.mediaTypes = [NSArray arrayWithObjects: (NSString *) kUTTypeMovie, nil];
+    [self presentViewController:controller animated:YES completion:nil];
+    }
 
 
 - (IBAction)dismissCameraActions:(UIButton *)sender {
@@ -166,15 +173,39 @@
 //this sets the pickedImage
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    
+    //video stuff, first we take the URL to make the toggle for this function
+    self.videoURL = info[UIImagePickerControllerMediaURL];
+    
+    //if the url exists run video actions
+    if(self.videoURL){
+    //let you dismis the vew when you select useVideo
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+//        NSLog(@"this is the URL %@", self.videoURL);
+        
+        self.videoController = [[MPMoviePlayerController alloc] init];
+        [self.videoController setContentURL:self.videoURL];
+        [self.videoController.view setFrame:CGRectMake (13, 110, 350, 350)];
+        [self.view addSubview:self.videoController.view];
+        
+        [self.videoController play];
+    
+    }
+    else { //run photo actions
+    
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
-    //here we return a photo croped and rotated from the camera    
+    //here we return a photo croped and rotated from the camera
     image = [self squareImageWithImage:image scaledToSize:CGSizeMake(300,1)];
+//        NSLog(@"THIS IS THE IMAGE AND I AM HERE TO TEST!!!!");
     
     self.pickedImage = image;
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    }
 }
+
 
 
 #pragma fixing orientation of photo and scale
@@ -225,10 +256,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    
     //here we pass the image as nsdata
     NSData *imageData = UIImagePNGRepresentation(self.pickedImage);
-    
     
     //sending the object Photo to the Finalize
     FinalizeViewController *destVC = segue.destinationViewController;
@@ -240,7 +269,13 @@
     
     NSLog(@"%@", self.user.userName);
     
+    //passing the URL if exists
+    if(self.videoURL){
+    destVC.videoURL = self.videoURL;
+    
+    }
 }
+
 
 
 

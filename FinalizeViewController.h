@@ -15,5 +15,7 @@
 //@property Photo *photo;
 @property User *user;
 @property NSData *photoData;
+@property (strong, nonatomic) NSURL *videoURL;
+
 
 @end

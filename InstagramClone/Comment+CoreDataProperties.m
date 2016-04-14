@@ -2,7 +2,7 @@
 //  Comment+CoreDataProperties.m
 //  InstagramClone
 //
-//  Created by Richard Velazquez on 4/7/16.
+//  Created by James Rochabrun on 13-04-16.
 //  Copyright © 2016 Team4. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,7 +15,8 @@
 
 @dynamic commentText;
 @dynamic commentTimestamp;
-@dynamic user;
 @dynamic photo;
+@dynamic user;
+@dynamic video;
 
 @end
