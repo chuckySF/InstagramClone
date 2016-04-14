@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
 @property (weak, nonatomic) IBOutlet UIButton *hashtagButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end
 
@@ -323,6 +324,31 @@
 
 
 #pragma User Interaction
+-(void)sharePressed:(UIButton *)button{
+  CGPoint hitPoint = [button convertPoint:CGPointZero toView:self.tableView];
+  NSIndexPath *hitIndex = [self.tableView indexPathForRowAtPoint:hitPoint];
+  Photo *sharedPhoto = [self.photos objectAtIndex:hitIndex.row];
+  
+  [[self shareButton] setEnabled:NO];
+  
+  NSString *sharedText = [NSString stringWithFormat:@"%@",sharedPhoto.photoDescription];
+  UIImage *sharedImage = [UIImage imageWithData:sharedPhoto.photoImage];
+  
+  UIActivityViewController *activityViewController = [[UIActivityViewController alloc]initWithActivityItems:@[sharedText, sharedImage] applicationActivities:nil];
+  
+  [activityViewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+  
+  [activityViewController setExcludedActivityTypes:@[UIActivityTypePostToWeibo, UIActivityTypeMessage]];
+  
+  [self presentViewController:activityViewController animated:YES completion:^{
+    [[self shareButton]setEnabled:YES];
+  }];
+  
+}
+
+
+
+
 -(void)didTapZoom:(UIButton *)button{
   
   //gets the appropriate cell
@@ -521,6 +547,8 @@
 - (IBAction)onHomePressed:(UIButton *)sender {
     [self.tableView setContentOffset:CGPointZero animated:YES];
 }
+
+
 
 
 

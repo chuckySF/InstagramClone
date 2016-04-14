@@ -66,6 +66,9 @@
 
 }
 
+- (IBAction)onShareButtonPressed:(UIButton *)sender {
+  [self.delegate sharePressed:sender];
+}
 
 
 

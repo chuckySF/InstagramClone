@@ -13,6 +13,7 @@
 -(void)didTapZoom:(UIButton *)button;
 -(void)didWanttoSeeComments:(UIButton *)button;
 -(void)photoLiked:(UIButton *)button;
+-(void)sharePressed:(UIButton *)button;
 
 @end
 
