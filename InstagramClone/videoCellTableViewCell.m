@@ -22,7 +22,10 @@
     self.movie = [[MPMoviePlayerController alloc] init];
     self.movie.scalingMode = MPMovieScalingModeAspectFit;
     [self.contentView addSubview:self.movie.view];
-    
+  
+  [self.movie play];
+
+  
     return self;
 }
 
@@ -42,6 +45,7 @@
     [super layoutSubviews];
 //    self.movie.accessibilityFrame = CGRectMake(10, 0, self.bounds.size.width - 80, self.bounds.size.height);
     [self.movie.view setFrame:CGRectMake(10, 0, self.bounds.size.width - 80, self.bounds.size.height)];
+  
 
 }
 

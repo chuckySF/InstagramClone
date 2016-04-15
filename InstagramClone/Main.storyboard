@@ -1003,6 +1003,75 @@
             </objects>
             <point key="canvasLocation" x="966" y="769.5"/>
         </scene>
+        <!--Test View Controller-->
+        <scene sceneID="1Qj-Tp-SaV">
+            <objects>
+                <viewController id="QVF-43-dZ6" customClass="TestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="udd-OQ-UhO"/>
+                        <viewControllerLayoutGuide type="bottom" id="9fN-fB-HGd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4LO-Yr-oHZ">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="416" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ggy-Rw-FNv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="416" id="u8q-Ba-236" customClass="videoCellTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u8q-Ba-236" id="5wG-Lz-rNO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QVF-43-dZ6" id="TEj-1d-y3e"/>
+                                    <outlet property="delegate" destination="QVF-43-dZ6" id="kXe-L4-uBA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ggy-Rw-FNv" firstAttribute="leading" secondItem="4LO-Yr-oHZ" secondAttribute="leadingMargin" constant="-20" id="ANg-ES-akP"/>
+                            <constraint firstItem="Ggy-Rw-FNv" firstAttribute="top" secondItem="4LO-Yr-oHZ" secondAttribute="topMargin" constant="13" id="Zzo-ZJ-5U2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="9fN-fB-HGd" firstAttribute="top" secondItem="Ggy-Rw-FNv" secondAttribute="bottom" id="oG9-BV-QPu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ggy-Rw-FNv" secondAttribute="trailing" constant="-20" id="wrW-vk-qD7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ggy-Rw-FNv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ANg-ES-akP"/>
+                                <exclude reference="Zzo-ZJ-5U2"/>
+                                <exclude reference="wrW-vk-qD7"/>
+                                <exclude reference="oG9-BV-QPu"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ggy-Rw-FNv"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ANg-ES-akP"/>
+                                <include reference="Zzo-ZJ-5U2"/>
+                                <include reference="wrW-vk-qD7"/>
+                                <include reference="oG9-BV-QPu"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ggy-Rw-FNv" id="1kw-wF-i1i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFp-yU-WIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541.5" y="1131.75"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mqe-L9-kPo">
             <objects>

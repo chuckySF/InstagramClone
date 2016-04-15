@@ -21,6 +21,10 @@
 #import "AddPhotoViewController.h"
 #import "Like.h"
 #import "NewTextView.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UIKit/UIKit.h>
+#import "videoCellTableViewCell.h"
 
 
 
@@ -43,6 +47,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
 @property (weak, nonatomic) IBOutlet UIButton *hashtagButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) MPMoviePlayerController *movie;
+
 
 @end
 
@@ -226,21 +232,49 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
-       
-  //grabbing temporary photo item
+ //grabbing temporary photo item
   Photo *tempPhoto = [self.photos objectAtIndex:indexPath.row];
   
   //casting as user
   User *tempUser = (User *)tempPhoto.user;
   NSLog(@"the user for this photo is %@", tempUser.userName);
   
+  
   //creating cell
   PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
   
-  //seting image info
-  NSData *imageData = tempPhoto.photoImage;
-  cell.photoImageView.image = [UIImage imageWithData:imageData];
-  cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
+  //Photo vs video
+  
+  //decides if this is an image or video
+  if (tempPhoto.photoImage)
+  {
+    NSData *imageData = tempPhoto.photoImage;
+    cell.photoImageView.image = [UIImage imageWithData:imageData];
+  }
+  else //displays video
+  {
+  
+    MPMoviePlayerController *movie = [[MPMoviePlayerController alloc] init];
+    movie.scalingMode = MPMovieScalingModeAspectFit;
+    
+    NSString *urlString = [[NSString alloc] initWithData:tempPhoto.photoVideo encoding:NSASCIIStringEncoding];
+    
+    NSLog(@"video string:%@ text after", urlString);
+    NSURL *url = [[NSURL alloc]initWithString:urlString];
+    [cell.movie setContentURL:url];
+    [cell.contentView addSubview:movie.view];
+    
+    [cell.movie.view setFrame:CGRectMake(10, 0, cell.bounds.size.width - 80, cell.bounds.size.height)];
+    
+    [cell.movie play];
+    
+  
+  
+  }
+  
+
+  
+    cell.profileImageView.image = [UIImage imageWithData:tempUser.userImage];
     
     //make profile imageview circular
     cell.profileImageView.layer.cornerRadius = 22;

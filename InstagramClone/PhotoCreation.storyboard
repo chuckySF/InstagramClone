@@ -244,10 +244,10 @@
                                         <exclude reference="L0P-Nq-D0l"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="3SN-cX-xAP"/>
-                                        <exclude reference="thL-hc-zmM"/>
                                         <exclude reference="Bpq-pG-kUs"/>
                                         <exclude reference="z8X-Lg-AKF"/>
+                                        <exclude reference="3SN-cX-xAP"/>
+                                        <exclude reference="thL-hc-zmM"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -256,10 +256,10 @@
                                         <include reference="L0P-Nq-D0l"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="3SN-cX-xAP"/>
-                                        <include reference="thL-hc-zmM"/>
                                         <include reference="Bpq-pG-kUs"/>
                                         <include reference="z8X-Lg-AKF"/>
+                                        <include reference="3SN-cX-xAP"/>
+                                        <include reference="thL-hc-zmM"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -283,15 +283,15 @@
                                 <exclude reference="A4P-iw-RnO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="FXw-D1-9Qh"/>
+                                <exclude reference="brh-D7-FdZ"/>
+                                <exclude reference="vdz-Az-4Qt"/>
                                 <exclude reference="hCX-Sr-hKX"/>
                                 <exclude reference="hTb-fY-erT"/>
                                 <exclude reference="ont-BI-T27"/>
-                                <exclude reference="brh-D7-FdZ"/>
-                                <exclude reference="vdz-Az-4Qt"/>
                                 <exclude reference="piF-xa-5Gf"/>
                                 <exclude reference="rWz-um-X1v"/>
                                 <exclude reference="tep-Zb-iaO"/>
-                                <exclude reference="FXw-D1-9Qh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -300,11 +300,11 @@
                                 <include reference="QZ2-cq-RDA"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FXw-D1-9Qh"/>
                                 <include reference="brh-D7-FdZ"/>
                                 <include reference="vdz-Az-4Qt"/>
                                 <include reference="rWz-um-X1v"/>
                                 <include reference="tep-Zb-iaO"/>
-                                <include reference="FXw-D1-9Qh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">

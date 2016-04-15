@@ -15,7 +15,10 @@
 
 @implementation PhotoTableViewCell
 
-
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+  self = [super initWithCoder:aDecoder];
+  return self;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

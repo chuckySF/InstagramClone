@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NewTextView.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <UIKit/UIKit.h>
 
 @protocol PhotoTableViewCellDelegate
 -(void)didTapZoom:(UIButton *)button;
@@ -25,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *userNameButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *locationButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *viewCommentButton;
+@property (strong, nonatomic) MPMoviePlayerController *movie;
+
 
 @property (weak, nonatomic) IBOutlet NewTextView *pictureDescription;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;

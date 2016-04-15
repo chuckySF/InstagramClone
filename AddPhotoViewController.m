@@ -52,6 +52,15 @@
     [self.libraryButton setHighlighted:true];
     [self.videoButton setHighlighted:true];
     self.videoButton.userInteractionEnabled = false;
+  
+  NSURL *containerURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.rickyvelasquez.InstagramClone"];
+  
+  NSLog(@"%@",containerURL.path);
+  
+//  NSFileManager *fm = [NSFileManager defaultManager];
+//  NSString *appGroupName = @"com.rickyvelasquez.InstagramClone";
+//  NSURL *groupContainerURL = [fm containerURLForSecurityApplicationGroupIdentifier:appGroupName];
+//  NSString *mainPath = [groupContainerURL path];
 
 }
 
@@ -170,13 +179,19 @@
 
 
 #pragma Camera
+
+
 //this sets the pickedImage
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     
     //video stuff, first we take the URL to make the toggle for this function
     self.videoURL = info[UIImagePickerControllerMediaURL];
-    
+  
+
+
+
+  
     //if the url exists run video actions
     if(self.videoURL){
     //let you dismis the vew when you select useVideo
@@ -189,7 +204,36 @@
         [self.view addSubview:self.videoController.view];
         
         [self.videoController play];
-    
+      
+      //test code
+      NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+      NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
+      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+      NSString *documentsDirectory = [paths objectAtIndex:0];
+      NSString *tempPath = [documentsDirectory stringByAppendingFormat:@"/vid1.mp4"];
+      
+      
+      NSFileManager *fm = [NSFileManager defaultManager];
+      NSString *appGroupName = @"group.com.rickyvelasquez.InstagramClone";
+      NSURL *groupContainerURL = [fm containerURLForSecurityApplicationGroupIdentifier:appGroupName];
+      NSString *mainPath = [groupContainerURL path];
+      
+      //NSString *mainPath = [[[[NSFileManager defaultManager]containerURLForSecurityApplicationGroupIdentifier:@"com.rickyvelasquez.InstagramClone"]URLByAppendingPathComponent:tempPath]absoluteString];
+      
+      
+      
+      NSLog(@"MainPath%@", mainPath);
+      //NSLog(@"TempPath%@",tempPath);
+      
+      NSLog(@"Temp path is after the last character%@", tempPath);
+      BOOL success = [videoData writeToFile:tempPath atomically:NO];
+      
+      if (success) {
+        NSLog(@"save successful");
+      }else{
+        NSLog(@"Fail");
+      }
+      
     }
     else { //run photo actions
     

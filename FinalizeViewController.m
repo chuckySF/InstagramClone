@@ -115,8 +115,10 @@
     
     photo.photoImage = self.photoData;
     
-    NSData *currentVideo = [NSData dataWithContentsOfURL: self.videoURL];
-    
+    NSString *currentVideo = [NSString stringWithFormat:@"%@", self.videoURL];
+  
+    NSLog(@"%@", currentVideo);
+  
     photo.photoVideo = currentVideo;
     
     NSLog(@"this in the nsdata %@", currentVideo);
