@@ -42,7 +42,20 @@
     self.addCommentButton.clipsToBounds = YES;
 
     
-    
+    [self.enterCommentTextfield addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+
+}
+
+
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    if (self.enterCommentTextfield.text.length > 0) {
+        self.addCommentButton.userInteractionEnabled = true;
+        self.addCommentButton.highlighted = false;
+    } else {
+        self.addCommentButton.userInteractionEnabled = false;
+        self.addCommentButton.highlighted = true;
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -63,9 +76,25 @@
 
     
     [self.tableView reloadData];
+    
+    
+    
+    self.addCommentButton.userInteractionEnabled = false;
+    self.addCommentButton.highlighted = true;
 
     // Do any additional setup after loading the view.
+//    if (self.enterCommentTextfield.text.length > 0) {
+//        self.addCommentButton.userInteractionEnabled = true;
+//        self.addCommentButton.highlighted = false;
+//    } else {
+//        self.addCommentButton.userInteractionEnabled = false;
+//        self.addCommentButton.highlighted = true;
+//    }
+    
 }
+
+
+
 
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -156,7 +185,10 @@
 
     
     [self.tableView reloadData];
-
+    
+        self.addCommentButton.userInteractionEnabled = false;
+        self.addCommentButton.highlighted = true;
+    
 }
 
 
@@ -191,9 +223,35 @@
 
 
 #pragma textfield
+//
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+//    
+//    if (textField.text.length > 0) {
+//        self.addCommentButton.userInteractionEnabled = true;
+//        self.addCommentButton.highlighted = false;
+//    } else {
+//        self.addCommentButton.userInteractionEnabled = false;
+//        self.addCommentButton.highlighted = true;
+//    }
+//    return true;
+//}
+//
+//-(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+//    if (textField.text.length > 0) {
+//        self.addCommentButton.userInteractionEnabled = true;
+//        self.addCommentButton.highlighted = false;
+//    } else {
+//        self.addCommentButton.userInteractionEnabled = false;
+//        self.addCommentButton.highlighted = true;
+//    }
+//    return true;
+//}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    
+
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.3];
     [UIView setAnimationBeginsFromCurrentState:TRUE];

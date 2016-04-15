@@ -24,11 +24,6 @@
 
 
 
-
-
-
-
-
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoTableViewCellDelegate, UIScrollViewDelegate>
 @property NSMutableArray *photos;
 @property NSMutableArray *users;
@@ -134,7 +129,8 @@
   
   User *defaultUser= [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
   defaultUser.userName = @"DoubleClickRick";
-  UIImage *userProfilePicture = [UIImage imageNamed:@"image0"];
+    UIImage *userProfilePicture = [UIImage imageNamed:@"emoji-poop"];
+    
   defaultUser.userImage = UIImageJPEGRepresentation(userProfilePicture, 1.0);
   self.currentUser = defaultUser;
   
@@ -150,6 +146,7 @@
     newPhoto.photoTimestamp = [NSDate date];
     
     newPhoto.user = defaultUser;
+      
     
     [self.photos addObject:newPhoto];
   }
